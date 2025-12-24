@@ -27,7 +27,7 @@ export default function HomePage() {
 
 	return (
 		<PageContainer
-			title="Frequencii - Marketing Asset Management at Your Fingertips"
+			title="Editin foto - Tools Editin Foto Ai Professional."
 			seo={seoData}
 		>
 			{/* Hero section with header */}
