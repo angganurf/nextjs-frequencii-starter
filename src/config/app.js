@@ -36,7 +36,7 @@ export const appConfig = {
 
   // Branding
   branding: {
-    logo: '/images/brand.svg',
+    logo: '/images/editin-logo.png',
     logoAlt: 'Frequencii logo',
     favicon: '/favicon.png',
   },

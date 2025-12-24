@@ -68,7 +68,7 @@
   --color-yellowGreen-400: #D1F19C;
   --color-yellowGreen-500: #BCEB70;
   --color-yellowGreen-600: #A3E33A;
-  --color-yellowGreen-700: #85C51C;
+  --color-yellowGreen-700: #1a73e8;
   --color-yellowGreen-800: #70A617;
   --color-yellowGreen-900: #588212;
 
@@ -178,6 +178,7 @@
   .xs\:inline-flex {
     display: inline-flex;
   }
+
   .xs\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -207,51 +208,121 @@
 
 /* Animations */
 @keyframes movingLeft {
-  0% { transform: translateX(0px); }
-  50% { transform: translateX(-700px); }
-  100% { transform: translateX(0px); }
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(-700px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 @keyframes movingRight {
-  0% { transform: translateX(0px); }
-  50% { transform: translateX(700px); }
-  100% { transform: translateX(0px); }
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(700px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 @keyframes pulseText {
-  0% { color: #041109; }
-  25% { color: #E3E8E5; }
-  70% { color: #E3E8E5; }
-  100% { color: #041109; }
+  0% {
+    color: #041109;
+  }
+
+  25% {
+    color: #E3E8E5;
+  }
+
+  70% {
+    color: #E3E8E5;
+  }
+
+  100% {
+    color: #041109;
+  }
 }
 
 @keyframes pulseTextDark {
-  0% { color: #19251D; }
-  25% { color: #FFF; }
-  70% { color: #FFF; }
-  100% { color: #19251D; }
+  0% {
+    color: #19251D;
+  }
+
+  25% {
+    color: #FFF;
+  }
+
+  70% {
+    color: #FFF;
+  }
+
+  100% {
+    color: #19251D;
+  }
 }
 
 @keyframes pulseTextGreen {
-  0% { color: #2B4F36; }
-  25% { color: #FFF; }
-  70% { color: #FFF; }
-  100% { color: #2B4F36; }
+  0% {
+    color: #2B4F36;
+  }
+
+  25% {
+    color: #FFF;
+  }
+
+  70% {
+    color: #FFF;
+  }
+
+  100% {
+    color: #2B4F36;
+  }
 }
 
 @keyframes showLine {
-  0% { width: 200px; }
-  25% { width: 600px; }
-  50% { width: 600px; }
-  100% { width: 200px; }
+  0% {
+    width: 200px;
+  }
+
+  25% {
+    width: 600px;
+  }
+
+  50% {
+    width: 600px;
+  }
+
+  100% {
+    width: 200px;
+  }
 }
 
 @keyframes showSearchInput {
-  0% { width: 0px; }
-  100% { width: 180px; }
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 180px;
+  }
 }
 
 @keyframes animFill {
-  0% { width: 0px; }
-  100% { width: 100%; }
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 100%;
+  }
 }
