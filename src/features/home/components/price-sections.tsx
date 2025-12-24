@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PaymentForm from "./payment-form";
 
 const PriceSection: React.FC = () => {
 	return (
@@ -45,13 +46,16 @@ const PriceSection: React.FC = () => {
 							Harga segitu ga ada apa-apanya dibanding karya super kece. <br />
 							Fitur bakal terus bertambah, support 24/7, dan garansi lifetime.
 						</p>
+
 						<img
-							className="relative block mx-auto px-12 lg:px-8 mb-12"
+							className="relative block mx-auto px-6"
 							src="/images/down.gif"
-							alt="Frequencii dashboard showing marketing asset organization and management interface"
+							alt="Arrow down"
 							width={200}
 							height={200}
 						/>
+						{/* Payment Form Integration */}
+						<PaymentForm />
 					</div>
 				</div>
 			</div>

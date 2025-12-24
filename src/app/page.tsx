@@ -41,8 +41,8 @@ export default function HomePage() {
 			<HowItWorksSection />
 			<AllFeaturesSection />
 			<PriceSection />
-			<TestimonialsSection />
-			<CTASection />
+			{/* <TestimonialsSection />
+			<CTASection /> */}
 		</PageContainer>
 	);
 }

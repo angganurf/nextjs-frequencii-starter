@@ -21,7 +21,7 @@ function Footer() {
 			<div>
 				<section className="py-12 md:pt-24">
 					<div className="container px-4 mx-auto">
-						<div className="max-w-5xl mx-auto">
+						{/* <div className="max-w-5xl mx-auto">
 							<div className="flex flex-wrap -mx-4 -mb-8">
 								<div className="w-full xs:w-1/2 md:w-1/4 px-4 mb-8">
 									<h5 className="text-xl font-semibold mb-6">Product</h5>
@@ -186,7 +186,7 @@ function Footer() {
 									</ul>
 								</div>
 							</div>
-						</div>
+						</div> */}
 						<div className="mt-32 pt-12 border-t border-gray-200">
 							<div className="flex flex-wrap items-center -mx-4">
 								<div className="w-full lg:w-1/3 px-4">
@@ -200,7 +200,7 @@ function Footer() {
 								<div className="w-full lg:w-1/3 px-4">
 									<p className="text-gray-500">
 										Made by{" "}
-										<a href="https://www.pixelrocket.store">Pixel Rocket</a>.
+										<a href="https://www.editifoto.site">Editin Ai Studio</a>.
 										All rights reserved.
 									</p>
 								</div>
