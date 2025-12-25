@@ -21,7 +21,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className="font-body bg-body text-body antialiased">
+			<body
+				className="font-body bg-body text-body antialiased"
+				suppressHydrationWarning
+			>
 				{children}
 			</body>
 		</html>

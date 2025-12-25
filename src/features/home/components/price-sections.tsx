@@ -11,7 +11,7 @@ const PriceSection: React.FC = () => {
 							<Image
 								src="/images/editin-logo.png"
 								className="mx-auto"
-								alt="Frequencii logo"
+								alt="Editin Foto logo"
 								width={200}
 								height={40}
 							/>

@@ -1,0 +1,31 @@
+### Tripay Callback Simulation
+# This request simulates a successful payment callback from Tripay.
+# You need to calculate the HMAC-SHA256 signature of the JSON body using your TRIPAY_PRIVATE_KEY
+# and paste it into the X-Callback-Signature header.
+#
+# Use the helper script `node scripts/generate-signature.js` to get the signature.
+
+POST http://localhost:3000/api/tripay/callback
+Content-Type: application/json
+X-Callback-Event: payment_status
+X-Callback-Signature: <PASTE_GENERATED_SIGNATURE_HERE>
+
+{
+  "merchant_ref": "TX1234567890",
+  "status": "PAID",
+  "customer_email": "customer@example.com",
+  "customer_name": "Test User",
+  "payment_method": "BCAVA",
+  "payment_method_code": "BCAVA",
+  "total_amount": 95000,
+  "fee_merchant": 0,
+  "fee_customer": 0,
+  "total_fee": 0,
+  "amount_received": 95000,
+  "is_closed_payment": 1,
+  "reference": "REF123",
+  "checkout_url": "https://tripay.co.id/checkout/REF123",
+  "status_code": 1,
+  "paid_at": 1641234567,
+  "note": null
+}

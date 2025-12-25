@@ -91,7 +91,7 @@ const PaymentForm: React.FC = () => {
 				Pastikan email diisi dengan benar, <br />
 				supaya appsnya terkirim!
 			</span>
-			<hr className="mb-6 border-gray-200" />
+			<hr className="mb-6 border-gray-200"></hr>
 			{error && (
 				<div className="mb-4 p-3 bg-red-50 text-red-600 rounded-lg text-sm">
 					{error}

@@ -41,7 +41,7 @@ const HeroSection: React.FC = () => {
 									behavior: "smooth",
 								});
 							}}
-							aria-label="Get started with Frequencii"
+							aria-label="Get started with Editin Foto"
 						>
 							GAS, Mau!
 						</Button>
@@ -53,7 +53,7 @@ const HeroSection: React.FC = () => {
 			<Image
 				className="relative block mx-auto  lg:px-8 -mt-40 md:-mt-64"
 				src="/images/headers-header-2-new-center.png"
-				alt="Frequencii dashboard showing marketing asset organization and management interface"
+				alt="Editin Foto dashboard showing marketing asset organization and management interface"
 				width={800}
 				height={600}
 				priority
