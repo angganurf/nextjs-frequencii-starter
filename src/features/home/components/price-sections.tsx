@@ -3,7 +3,7 @@ import PaymentForm from "./payment-form";
 
 const PriceSection: React.FC = () => {
 	return (
-		<section className="py-12 md:py-24">
+		<section id="payment-section" className="py-12 md:py-24">
 			<div className="container px-4 mx-auto">
 				<div className="max-w-7xl mx-auto">
 					<div className="max-w-2xl mx-auto mb-20 text-center">

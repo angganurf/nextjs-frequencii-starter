@@ -37,8 +37,9 @@ const HeroSection: React.FC = () => {
 							size="default"
 							className="group"
 							onClick={() => {
-								// Handle get started action
-								console.log("Get Started clicked");
+								document.getElementById("payment-section")?.scrollIntoView({
+									behavior: "smooth",
+								});
 							}}
 							aria-label="Get started with Frequencii"
 						>

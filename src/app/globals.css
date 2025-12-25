@@ -169,6 +169,7 @@
 }
 
 :root {
+  scroll-behavior: smooth;
   /* Background image for radial gradient */
   --bg-gradient-radial-dark-green: radial-gradient(446.50% 301.92% at 50.09% 3.49%, #052410 13.21%, #75A274 27.92%, #A0CAAC 34.17%);
 }

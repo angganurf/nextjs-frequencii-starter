@@ -97,13 +97,6 @@ export default function ContactPage() {
 								</div>
 							</div>
 						</div>
-
-						<div className="mt-16 pt-8 border-t border-gray-200">
-							<p className="text-gray-400 text-sm">
-								&copy; {new Date().getFullYear()} Editin Foto. All rights
-								reserved.
-							</p>
-						</div>
 					</div>
 				</div>
 			</section>
