@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
+import { prisma } from "@/lib/prisma";
 
 export async function POST(req: Request) {
 	const apiKey = process.env.TRIPAY_API_KEY;
@@ -45,7 +46,7 @@ export async function POST(req: Request) {
 					quantity: 1,
 				},
 			],
-			return_url: "https://editinfoto.site/payment/success", // Placeholder
+			return_url: "https://editinfoto.site/payment/success",
 			callback_url: "https://editinfoto.site/api/tripay/callback",
 			expired_time: expiry,
 			signature: signature,
@@ -65,6 +66,37 @@ export async function POST(req: Request) {
 		if (!response.ok) {
 			console.error("Tripay Error Response:", data);
 			throw new Error(data.message || "Failed to create transaction");
+		}
+
+		// Database Input: Only after successful Tripay Transaction
+		if (data.success && data.data) {
+			// 1. Find or Create User
+			let user = await prisma.user.findUnique({
+				where: { email: customer_email },
+			});
+
+			if (!user) {
+				user = await prisma.user.create({
+					data: {
+						email: customer_email,
+						username: `guest_${Date.now()}`,
+						password: crypto.randomBytes(8).toString("hex"),
+						fullName: customer_name,
+						isActive: false,
+					},
+				});
+			}
+
+			// 2. Create Transaction Record
+			await prisma.transaction.create({
+				data: {
+					userId: user.id,
+					amount: amount,
+					status: "PENDING",
+					referenceId: data.data.reference,
+					channel: method,
+				},
+			});
 		}
 
 		return NextResponse.json(data);

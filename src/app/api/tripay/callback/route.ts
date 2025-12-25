@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { sendProductEmail } from "@/lib/email";
+import { prisma } from "@/lib/prisma";
+import bcrypt from "bcrypt";
 
 export async function POST(req: Request) {
 	const privateKey = process.env.TRIPAY_PRIVATE_KEY;
@@ -52,25 +54,106 @@ export async function POST(req: Request) {
 			if (status === "PAID") {
 				console.log(`Payment received for order ${merchant_ref}`);
 
-				// Send email product delivery
-				if (customer_email) {
-					const emailSent = await sendProductEmail(
-						customer_email,
-						customer_name || "Customer"
-					);
-					if (emailSent) {
-						console.log(`Product email sent to ${customer_email}`);
+				// 1. Database: Update Transaction & User
+				try {
+					// Find transaction by Tripay Reference (which matches 'reference' in body, NOT merchant_ref)
+					// Wait, body has 'reference'. We stored 'reference' as 'referenceId'.
+					const tripayReference = body.reference;
+
+					const transaction = await prisma.transaction.findUnique({
+						where: { referenceId: tripayReference },
+						include: { user: true },
+					});
+
+					if (transaction) {
+						// Generate Credentials
+						// Username: first name + 4 random chars
+						const cleanName = (customer_name || "user")
+							.replace(/\s+/g, "")
+							.toLowerCase()
+							.slice(0, 10);
+						const username = `${cleanName}${crypto
+							.randomBytes(2)
+							.toString("hex")}`;
+						const plainPassword = crypto
+							.randomInt(10000000, 99999999)
+							.toString(); // 8 digit number
+
+						const hashedPassword = await bcrypt.hash(plainPassword, 10);
+
+						// Update User
+						await prisma.user.update({
+							where: { id: transaction.userId },
+							data: {
+								isActive: true,
+								username: username,
+								password: hashedPassword, // Hashed password
+							},
+						});
+
+						// Update Transaction
+						await prisma.transaction.update({
+							where: { id: transaction.id },
+							data: { status: "PAID" },
+						});
+
+						// Send email product delivery WITH credentials
+						if (customer_email) {
+							// Calc fees from callback payload
+							// Tripay sends: total_amount, fee_merchant, fee_customer, amount_received
+							// We construct the invoice based on what the customer PAID (total_amount)
+							const totalAmount = body.total_amount || 95000;
+							const amount = 95000; // Base Price
+							const fee = body.total_fee || totalAmount - amount;
+
+							const emailSent = await sendProductEmail({
+								to: customer_email,
+								customerName: customer_name || "Customer",
+								credentials: { username, password: plainPassword },
+								invoice: {
+									date: new Date().toLocaleDateString("id-ID", {
+										weekday: "long",
+										year: "numeric",
+										month: "long",
+										day: "numeric",
+									}),
+									orderId: merchant_ref,
+									productName: "Editin Foto Premium - Unlimited",
+									price: amount,
+									fee: fee,
+									total: totalAmount,
+								},
+							});
+							if (emailSent) {
+								console.log(`Product email sent to ${customer_email}`);
+							} else {
+								console.error(
+									`Failed to send product email to ${customer_email}`
+								);
+							}
+						}
 					} else {
-						console.error(`Failed to send product email to ${customer_email}`);
+						console.error(
+							`Transaction not found for reference: ${tripayReference}`
+						);
 					}
-				} else {
-					console.warn(
-						"No customer email found in callback for:",
-						merchant_ref
-					);
+				} catch (dbError) {
+					console.error("Database Error in Callback:", dbError);
+					// Continue to return success so Tripay doesn't retry indefinitely if it's just a DB glitch?
+					// Or fail? Better to log and maybe fail if critical.
 				}
 			} else if (status === "EXPIRED" || status === "FAILED") {
 				console.log(`Payment failed/expired for order ${merchant_ref}`);
+				// Optional: Update transaction status to SHL
+				const tripayReference = body.reference;
+				if (tripayReference) {
+					await prisma.transaction
+						.update({
+							where: { referenceId: tripayReference },
+							data: { status: status },
+						})
+						.catch((e) => console.error("Failed to update failed status", e));
+				}
 			}
 		}
 

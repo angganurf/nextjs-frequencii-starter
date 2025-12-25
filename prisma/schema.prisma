@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  email     String   @unique
+  password  String
+  fullName  String?
+  address   String?
+  isActive  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  images       ImageGeneration[]
+  transactions Transaction[]
+}
+
+model ImageGeneration {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  imageUrl  String
+  prompt    String
+  type      String   // e.g., "Prewedding", "Product"
+  createdAt DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Transaction {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  amount      Float
+  status      String   // e.g., "PENDING", "PAID", "FAILED"
+  referenceId String   @unique // Tripay Reference
+  channel     String   // Tripay Channel
+  createdAt   DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id])
+}

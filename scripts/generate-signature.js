@@ -35,8 +35,8 @@ if (!privateKey) {
 const payload = {
     "merchant_ref": "TX1234567890",
     "status": "PAID",
-    "customer_email": "customer@example.com",
-    "customer_name": "Test User",
+    "customer_email": "angganurfaizal190300@gmail.com",
+    "customer_name": "Angga nurfaisal",
     "payment_method": "BCAVA",
     "payment_method_code": "BCAVA",
     "total_amount": 95000,

@@ -9,9 +9,9 @@ function Footer() {
 	// Route mapping for Next.js
 	const getRouteByName = (name: string): Route => {
 		const routes: Record<string, Route> = {
-			about: "/about" as Route,
 			contact: "/contact" as Route,
-			blog: "/blog" as Route,
+			privacyPolicy: "/privacy-policy" as Route,
+			termsOfService: "/terms-of-service" as Route,
 		};
 		return routes[name] || ("/" as Route);
 	};
@@ -152,20 +152,20 @@ function Footer() {
 									<h5 className="text-xl font-semibold mb-6">Legal</h5>
 									<ul>
 										<li className="mb-6">
-											<a
+											<Link
 												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
+												href={"/terms-of-service" as any}
 											>
 												Terms of Use
-											</a>
+											</Link>
 										</li>
 										<li className="mb-6">
-											<a
+											<Link
 												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
+												href={"/privacy-policy" as any}
 											>
 												Privacy Policy
-											</a>
+											</Link>
 										</li>
 										<li className="mb-6">
 											<a
@@ -176,12 +176,12 @@ function Footer() {
 											</a>
 										</li>
 										<li>
-											<a
+											<Link
 												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
+												href={"/contact" as any}
 											>
-												Cookie Settings
-											</a>
+												Contact Us
+											</Link>
 										</li>
 									</ul>
 								</div>
@@ -207,19 +207,19 @@ function Footer() {
 								<div className="w-full lg:w-1/3 px-4">
 									<div className="flex items-center justify-center lg:justify-end space-x-6">
 										<Link
-											href="/privacy-policy"
+											href={getRouteByName("privacyPolicy")}
 											className="text-gray-500 hover:text-gray-900 text-sm font-medium transition duration-200"
 										>
 											Privacy Policy
 										</Link>
 										<Link
-											href="/terms-of-service"
+											href={getRouteByName("termsOfService")}
 											className="text-gray-500 hover:text-gray-900 text-sm font-medium transition duration-200"
 										>
 											Terms of Service
 										</Link>
 										<Link
-											href="/contact"
+											href={getRouteByName("contact")}
 											className="text-gray-500 hover:text-gray-900 text-sm font-medium transition duration-200"
 										>
 											Contact
