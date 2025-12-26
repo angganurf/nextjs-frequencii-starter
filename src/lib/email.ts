@@ -170,3 +170,65 @@ export const sendProductEmail = async ({
 		return false;
 	}
 };
+
+export const sendAdminNotification = async ({
+	customerName,
+	customerEmail,
+	amount,
+	credentials,
+	invoice,
+}: {
+	customerName: string;
+	customerEmail: string;
+	amount: number;
+	credentials?: { username: string; password: string };
+	invoice?: { orderId: string; date: string };
+}): Promise<boolean> => {
+	const resendApiKey = process.env.RESEND_API_KEY;
+	if (!resendApiKey) return false;
+
+	const resend = new Resend(resendApiKey);
+	const adminEmail = "angganurfaizal234@gmail.com";
+	const formatRp = (num: number) => "Rp " + num.toLocaleString("id-ID");
+
+	const htmlContent = `
+    <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #e0e0e0; max-width: 600px;">
+        <h2 style="color: #1a73e8;">New Order Received! 🚀</h2>
+        <p>You have a new successful payment.</p>
+        
+        <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin: 15px 0;">
+            <p><strong>Customer:</strong> ${customerName}</p>
+            <p><strong>Email:</strong> ${customerEmail}</p>
+            <p><strong>Amount:</strong> ${formatRp(amount)}</p>
+            <p><strong>Order ID:</strong> ${invoice?.orderId || "-"}</p>
+            <p><strong>Date:</strong> ${invoice?.date || "-"}</p>
+        </div>
+
+        ${
+					credentials
+						? `
+        <div style="border-top: 1px dashed #ccc; padding-top: 10px;">
+            <h4 style="margin-bottom: 5px;">Generated Credentials:</h4>
+            <p style="margin: 0;">Username: <strong>${credentials.username}</strong></p>
+            <p style="margin: 0;">Password: <strong>${credentials.password}</strong></p>
+        </div>
+        `
+						: ""
+				}
+    </div>
+    `;
+
+	try {
+		await resend.emails.send({
+			from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+			to: adminEmail,
+			subject: `[New Order] ${customerName} - ${formatRp(amount)}`,
+			html: htmlContent,
+		});
+		console.log("Admin notification sent.");
+		return true;
+	} catch (error) {
+		console.error("Failed to send admin notification:", error);
+		return false;
+	}
+};

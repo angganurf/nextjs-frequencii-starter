@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
-import { sendProductEmail } from "@/lib/email";
+import { sendProductEmail, sendAdminNotification } from "@/lib/email";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcrypt";
 
@@ -34,9 +34,6 @@ export async function POST(req: Request) {
 
 		// Perform secure comparison
 		if (signature !== calculatedSignature) {
-			// Note: In some cases, depending on how body is parsed, JSON.stringify might fail to match
-			// the raw body used by Tripay. Ensure strict JSON handling.
-			// For this starter, we will log invalid signature but strictly return failure.
 			console.warn("Invalid Tripay Callback Signature", {
 				received: signature,
 				calculated: calculatedSignature,
@@ -56,8 +53,6 @@ export async function POST(req: Request) {
 
 				// 1. Database: Update Transaction & User
 				try {
-					// Find transaction by Tripay Reference (which matches 'reference' in body, NOT merchant_ref)
-					// Wait, body has 'reference'. We stored 'reference' as 'referenceId'.
 					const tripayReference = body.reference;
 
 					const transaction = await prisma.transaction.findUnique({
@@ -67,7 +62,6 @@ export async function POST(req: Request) {
 
 					if (transaction) {
 						// Generate Credentials
-						// Username: first name + 4 random chars
 						const cleanName = (customer_name || "user")
 							.replace(/\s+/g, "")
 							.toLowerCase()
@@ -97,7 +91,6 @@ export async function POST(req: Request) {
 							data: { status: "PAID" },
 						});
 
-						// Send email product delivery WITH credentials
 						if (customer_email) {
 							// Calc fees from callback payload
 							// Tripay sends: total_amount, fee_merchant, fee_customer, amount_received
@@ -105,27 +98,37 @@ export async function POST(req: Request) {
 							const totalAmount = body.total_amount || 95000;
 							const amount = 95000; // Base Price
 							const fee = body.total_fee || totalAmount - amount;
+							const invoiceData = {
+								date: new Date().toLocaleDateString("id-ID", {
+									weekday: "long",
+									year: "numeric",
+									month: "long",
+									day: "numeric",
+								}),
+								orderId: merchant_ref,
+								productName: "Editin Foto Premium - Unlimited",
+								price: amount,
+								fee: fee,
+								total: totalAmount,
+							};
 
 							const emailSent = await sendProductEmail({
 								to: customer_email,
 								customerName: customer_name || "Customer",
 								credentials: { username, password: plainPassword },
-								invoice: {
-									date: new Date().toLocaleDateString("id-ID", {
-										weekday: "long",
-										year: "numeric",
-										month: "long",
-										day: "numeric",
-									}),
-									orderId: merchant_ref,
-									productName: "Editin Foto Premium - Unlimited",
-									price: amount,
-									fee: fee,
-									total: totalAmount,
-								},
+								invoice: invoiceData,
 							});
 							if (emailSent) {
 								console.log(`Product email sent to ${customer_email}`);
+
+								// Send Admin Notification
+								await sendAdminNotification({
+									customerName: customer_name || "Customer",
+									customerEmail: customer_email,
+									amount: totalAmount,
+									credentials: { username, password: plainPassword },
+									invoice: invoiceData,
+								});
 							} else {
 								console.error(
 									`Failed to send product email to ${customer_email}`
@@ -139,8 +142,6 @@ export async function POST(req: Request) {
 					}
 				} catch (dbError) {
 					console.error("Database Error in Callback:", dbError);
-					// Continue to return success so Tripay doesn't retry indefinitely if it's just a DB glitch?
-					// Or fail? Better to log and maybe fail if critical.
 				}
 			} else if (status === "EXPIRED" || status === "FAILED") {
 				console.log(`Payment failed/expired for order ${merchant_ref}`);

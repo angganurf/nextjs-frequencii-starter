@@ -107,10 +107,11 @@ async function runSimulation() {
             "customer_name": txPayload.customer_name,
             "payment_method": "BCAVA",
             "payment_method_code": "BCAVA",
-            "total_amount": 95000,
+
+            "total_amount": 95000 + 4250, // Base + Fee
             "fee_merchant": 0,
-            "fee_customer": 0,
-            "total_fee": 0,
+            "fee_customer": 4250,
+            "total_fee": 4250,
             "amount_received": 95000,
             "is_closed_payment": 1,
             "checkout_url": "https://tripay.co.id/checkout/REF123",
@@ -146,7 +147,7 @@ async function runSimulation() {
             console.log('1. Tripay Transaction validated.');
             console.log('2. User/Transaction created in DB (Post-Validation).');
             console.log('3. Callback processed (PAID status).');
-            console.log('4. User Activated & Credentials Generated (Check Email).');
+            console.log('4. User Activated & Credentials Generated (Check Email + Admin Notif).');
         } else {
             console.error('\n❌ Callback Failed.');
         }
