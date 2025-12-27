@@ -84,10 +84,16 @@ export async function POST(req: Request) {
 					if (transaction) {
 						console.log("✅ Transaction found:", transaction.id);
 						console.log("   - User ID:", transaction.userId);
+						console.log("   - User Email:", transaction.user.email);
+						console.log("   - User Name:", transaction.user.fullName);
 						console.log("   - Current Status:", transaction.status);
 
+						// Use user data from database (Tripay callback doesn't include customer info)
+						const userEmail = transaction.user.email;
+						const userName = transaction.user.fullName || "Customer";
+
 						// Generate Credentials
-						const cleanName = (customer_name || "user")
+						const cleanName = (userName || "user")
 							.replace(/\s+/g, "")
 							.toLowerCase()
 							.slice(0, 10);
@@ -121,9 +127,9 @@ export async function POST(req: Request) {
 						});
 						console.log("✅ Transaction status updated to PAID");
 
-						// Send Email
-						if (customer_email) {
-							console.log("📧 Preparing to send email to:", customer_email);
+						// Send Email - Use email from database
+						if (userEmail) {
+							console.log("📧 Preparing to send email to:", userEmail);
 
 							// Check Resend API Key
 							const resendKey = process.env.RESEND_API_KEY;
@@ -153,19 +159,19 @@ export async function POST(req: Request) {
 							console.log("📧 Invoice data:", JSON.stringify(invoiceData));
 
 							const emailSent = await sendProductEmail({
-								to: customer_email,
-								customerName: customer_name || "Customer",
+								to: userEmail,
+								customerName: userName,
 								credentials: { username, password: plainPassword },
 								invoice: invoiceData,
 							});
 
 							if (emailSent) {
-								console.log(`✅ Product email sent to ${customer_email}`);
+								console.log(`✅ Product email sent to ${userEmail}`);
 
 								// Send Admin Notification
 								const adminSent = await sendAdminNotification({
-									customerName: customer_name || "Customer",
-									customerEmail: customer_email,
+									customerName: userName,
+									customerEmail: userEmail,
 									amount: totalAmount,
 									credentials: { username, password: plainPassword },
 									invoice: invoiceData,
@@ -173,11 +179,11 @@ export async function POST(req: Request) {
 								console.log("✅ Admin notification sent:", adminSent);
 							} else {
 								console.error(
-									`❌ Failed to send product email to ${customer_email}`
+									`❌ Failed to send product email to ${userEmail}`
 								);
 							}
 						} else {
-							console.error("❌ No customer_email in callback body!");
+							console.error("❌ No email found in user record!");
 						}
 					} else {
 						console.error(
