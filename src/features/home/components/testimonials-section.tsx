@@ -78,7 +78,8 @@ const TestimonialsSection: React.FC = () => {
 							TESTIMONIALS
 						</span>
 						<h1 className="font-heading tracking-tight text-4xl sm:text-5xl font-bold">
-							Kata mereka yang pake Editin Foto
+							Kata mereka yang pake{" "}
+							<span className="text-blue-600 inline-block">Editin Foto</span>
 						</h1>
 					</div>
 
@@ -88,7 +89,7 @@ const TestimonialsSection: React.FC = () => {
 							{(testimonials as Testimonial[]).map((testimonial) => (
 								<div
 									key={testimonial.id}
-									className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-4"
+									className="flex-[0_0_50%] min-w-0 px-4 cursor-grab"
 								>
 									<div className="flex flex-col h-full bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
 										{/* Image Container with Aspect Ratio */}
@@ -121,7 +122,7 @@ const TestimonialsSection: React.FC = () => {
 							<button
 								key={index}
 								onClick={() => scrollTo(index)}
-								className={`w-3 h-3 rounded-full transition-all duration-300 ${
+								className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
 									index === selectedIndex
 										? "bg-blue-600 w-8"
 										: "bg-gray-300 hover:bg-gray-400"

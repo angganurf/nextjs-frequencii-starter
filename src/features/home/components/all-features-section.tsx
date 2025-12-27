@@ -147,7 +147,7 @@ const AllFeaturesSection: React.FC = () => {
 				</div>
 
 				{/* Category Cards Grid */}
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
 					{categories.map((category, index) => (
 						<div
 							key={index}
@@ -196,8 +196,8 @@ const AllFeaturesSection: React.FC = () => {
 				</div>
 
 				{/* Bottom Text */}
-				<div className="mt-16 text-center">
-					<p className="text-xl font-bold bg-linear-to-r from-red-600 via-orange-500 via-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
+				<div className="mt-16 text-center bg-linear-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
+					<p className="text-xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
 						Tools Editin Foto, sekali bayar, fitur update, unlimited tanpa
 						kredit limit. Support & Garansi Lifetime.
 					</p>

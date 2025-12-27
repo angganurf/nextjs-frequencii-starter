@@ -41,8 +41,8 @@ const ComparisonSection: React.FC = () => {
 										<p className="font-semibold text-gray-900">
 											1x Foto Studio (Newborn/Wedding)
 										</p>
-										<p className="text-2xl font-bold text-red-500">
-											± Rp 3.000.000++
+										<p className="text-xl font-bold text-red-500 whitespace-nowrap">
+											± Rp 3.000.000+
 										</p>
 									</div>
 								</div>
@@ -53,20 +53,20 @@ const ComparisonSection: React.FC = () => {
 										<p className="font-semibold text-gray-900">
 											Jasa Edit Foto
 										</p>
-										<p className="text-2xl font-bold text-red-500">
-											± Rp 200.000/project
+										<p className="text-xl font-bold text-red-500 whitespace-nowrap">
+											± Rp 500.000
 										</p>
 									</div>
 								</div>
 
 								<div className="border-t border-gray-200 pt-4 mt-4">
-									<p className="text-sm text-gray-500 mb-2">
-										👉 Total yang biasa kamu keluarin:
+									<p className="text-sm text-gray-500 mb-2 text-center">
+										👉 Total yang harus kamu keluarin:
 									</p>
-									<p className="text-3xl font-bold text-red-600">
-										&gt; Rp 3.200.000
+									<p className="text-3xl text-center font-bold text-red-600">
+										± Rp 3.500.000
 									</p>
-									<p className="text-sm text-gray-500 mt-1">
+									<p className="text-sm text-center text-gray-500 mt-1">
 										(itu pun cuma sekali pakai)
 									</p>
 								</div>
@@ -74,7 +74,7 @@ const ComparisonSection: React.FC = () => {
 						</div>
 
 						{/* Editin Foto Cost */}
-						<div className="bg-linear-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
+						<div className="bg-linear-to-br from-yellowGreen-700 to-[#1765cc]  rounded-2xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
 							{/* Decorative */}
 							<div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
 
@@ -82,19 +82,17 @@ const ComparisonSection: React.FC = () => {
 								<span className="inline-block px-4 py-1 bg-yellow-400 text-yellow-900 rounded-full text-sm font-bold mb-4">
 									⚡ Editin Foto ✅
 								</span>
-								<h3 className="text-xl font-bold">
-									Foto Studio AI + Tools Konten
-								</h3>
+								<h3 className="text-xl font-bold">Foto Studio AI</h3>
 							</div>
 
 							<div className="space-y-4 relative z-10">
 								<div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
 									<p className="text-blue-100 mb-2">Harga Spesial</p>
-									<p className="text-5xl font-extrabold text-yellow-400 mb-2">
+									<p className="text-4xl font-extrabold text-yellow-400 mb-2">
 										Rp 95.000
 									</p>
-									<div className="inline-flex items-center gap-2 bg-green-500 px-4 py-2 rounded-full text-white text-sm font-bold">
-										🟢 SEKALI BAYAR, PAKAI SELAMANYA
+									<div className="inline-flex items-center gap-2 bg-green-600 px-4 py-2 rounded-full text-white text-sm font-bold">
+										🟢 SEKALI BAYAR, SEMUA SEPUASNYA
 									</div>
 								</div>
 
@@ -123,7 +121,7 @@ const ComparisonSection: React.FC = () => {
 							Kamu hemat lebih dari 90%
 						</p>
 						<p className="text-gray-700">
-							Tapi dapet fungsi setara foto studio + tools konten mahal 🤯
+							Tapi dapet fungsi setara foto studio mahal 🤯
 						</p>
 					</div>
 

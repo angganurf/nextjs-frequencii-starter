@@ -3,7 +3,7 @@ import PaymentForm from "./payment-form";
 
 const PriceSection: React.FC = () => {
 	return (
-		<section id="payment-section" className="py-2">
+		<section id="payment-section" className="py-2 mt-12">
 			<div className="container px-4 mx-auto">
 				<div className="max-w-7xl mx-auto">
 					<div className="max-w-2xl mx-auto mb-20 text-center">
@@ -38,7 +38,7 @@ const PriceSection: React.FC = () => {
 							<span className="bg-blue-600 px-4 text-white">95rb</span>
 						</h1>
 						<div className="mt-6 text-center">
-							<p className="text-xl font-bold bg-linear-to-r from-red-600 via-orange-500 via-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
+							<p className="text-xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
 								Unlimited Access, Semua Sepuasnya.
 							</p>
 						</div>

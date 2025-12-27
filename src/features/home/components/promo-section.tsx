@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const PromoSection: React.FC = () => {
 	return (
-		<section className="py-16 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 relative overflow-hidden">
+		<section className="py-16 bg-linear-to-br from-yellowGreen-700 to-[#1765cc] relative overflow-hidden">
 			{/* Decorative elements */}
 			<div className="absolute inset-0 opacity-10">
 				<div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
@@ -21,7 +21,7 @@ const PromoSection: React.FC = () => {
 
 					{/* Product Title */}
 					<h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8 leading-tight">
-						LIFETIME ACCESS AI EDITIN PHOTO
+						LIFETIME ACCESS EDITIN PHOTO AI
 						<span className="block text-lg md:text-xl font-normal text-white/80 mt-2">
 							(Akses Selamanya ke Semua Fitur Saat Ini & Fitur Mendatang)
 						</span>
@@ -58,7 +58,12 @@ const PromoSection: React.FC = () => {
 
 					{/* CTA Button */}
 					<Link
-						href="#payment-section"
+						onClick={() => {
+							document.getElementById("payment-form-section")?.scrollIntoView({
+								behavior: "smooth",
+							});
+						}}
+						href="#"
 						className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-indigo-700 bg-yellow-400 rounded-full hover:bg-yellow-300 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform mb-8"
 					>
 						Beli Sekarang →

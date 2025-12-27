@@ -11,7 +11,7 @@ const faqData: FAQItem[] = [
 	{
 		question: "Apa itu Editin Foto?",
 		answer:
-			"Editin Foto adalah platform berbasis AI yang membantu kamu mengedit foto secara profesional dengan mudah dan cepat. Mulai dari foto produk, portrait, hingga desain interior - semua bisa dilakukan dalam hitungan detik.",
+			"Editin Foto adalah tools berbasis AI yang membantu kamu editin foto secara profesional dengan mudah dan cepat. Mulai dari foto produk, portrait, hingga desain interior - semua bisa dilakukan dalam hitungan detik.",
 	},
 	{
 		question: "Apakah benar sekali bayar untuk selamanya?",
@@ -31,7 +31,7 @@ const faqData: FAQItem[] = [
 	{
 		question: "Metode pembayaran apa saja yang tersedia?",
 		answer:
-			"Kami menyediakan berbagai metode pembayaran termasuk transfer bank, e-wallet (GoPay, OVO, DANA, dll), dan QRIS. Semua transaksi diproses melalui payment gateway yang aman.",
+			"Kami menyediakan berbagai metode pembayaran termasuk transfer bank (Virtual Account), e-wallet (OVO, DANA, ShopeePay), dan QRIS. Semua transaksi diproses melalui payment gateway yang aman.",
 	},
 	{
 		question: "Bagaimana cara menghubungi support?",
