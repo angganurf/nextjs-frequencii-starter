@@ -17,7 +17,13 @@ export async function POST(req: Request) {
 
 	try {
 		const body = await req.json();
-		const { method, customer_name, customer_email, customer_phone } = body;
+		const {
+			method,
+			customer_name,
+			customer_email,
+			customer_phone,
+			customer_city,
+		} = body;
 
 		// Fixed amount for the product
 		const amount = 95000;
@@ -82,9 +88,18 @@ export async function POST(req: Request) {
 						username: `guest_${Date.now()}`,
 						password: crypto.randomBytes(8).toString("hex"),
 						fullName: customer_name,
+						address: customer_city || null,
 						isActive: false,
 					},
 				});
+			} else {
+				// Update existing user's address if city is provided
+				if (customer_city) {
+					await prisma.user.update({
+						where: { id: user.id },
+						data: { address: customer_city },
+					});
+				}
 			}
 
 			// 2. Create Transaction Record

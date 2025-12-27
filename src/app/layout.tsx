@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SocialProofAlert from "@/components/ui/social-proof-alert";
 
 export const metadata: Metadata = {
 	title: "Editin foto - Tools Editin Foto Ai Professional.",
@@ -28,7 +29,9 @@ export default function RootLayout({
 				<div className="max-w-[510px] md:max-w-[688px] min-h-screen flex w-full flex-col mx-auto">
 					{children}
 				</div>
+				<SocialProofAlert />
 			</body>
 		</html>
 	);
 }
+

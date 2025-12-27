@@ -19,6 +19,7 @@ const PaymentForm: React.FC = () => {
 		name: "",
 		email: "",
 		phone: "",
+		city: "",
 	});
 	const [error, setError] = useState<string | null>(null);
 
@@ -64,6 +65,7 @@ const PaymentForm: React.FC = () => {
 					customer_name: formData.name,
 					customer_email: formData.email,
 					customer_phone: formData.phone,
+					customer_city: formData.city,
 				}),
 			});
 
@@ -138,6 +140,20 @@ const PaymentForm: React.FC = () => {
 						onChange={handleChange}
 						className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
 						placeholder="08123456789"
+					/>
+				</div>
+				<div>
+					<label className="block text-sm font-medium text-gray-700 mb-1">
+						Nama Kota
+					</label>
+					<input
+						type="text"
+						name="city"
+						required
+						value={formData.city}
+						onChange={handleChange}
+						className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+						placeholder="Jakarta, Bandung, Surabaya, dll"
 					/>
 				</div>
 
