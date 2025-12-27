@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 		const { method, customer_name, customer_email, customer_phone } = body;
 
 		// Fixed amount for the product
-		const amount = 95000;
+		const amount = 1000;
 		const merchantRef = `TRX-${Date.now()}`;
 		const expiry = Math.floor(Date.now() / 1000) + 24 * 60 * 60; // 24 hours
 

@@ -1,5 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import testimonials from "@/data/testimonials.json";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useEffect, useState, useCallback } from "react";
 
 interface Testimonial {
 	id: number;
@@ -11,17 +16,48 @@ interface Testimonial {
 }
 
 const TestimonialsSection: React.FC = () => {
+	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+		Autoplay({ delay: 3000, stopOnInteraction: false }),
+	]);
+	const [selectedIndex, setSelectedIndex] = useState(0);
+	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+	const onInit = useCallback((emblaApi: any) => {
+		setScrollSnaps(emblaApi.scrollSnapList());
+	}, []);
+
+	const onSelect = useCallback((emblaApi: any) => {
+		setSelectedIndex(emblaApi.selectedScrollSnap());
+	}, []);
+
+	useEffect(() => {
+		if (!emblaApi) return;
+
+		onInit(emblaApi);
+		onSelect(emblaApi);
+		emblaApi.on("reInit", onInit);
+		emblaApi.on("reInit", onSelect);
+		emblaApi.on("select", onSelect);
+	}, [emblaApi, onInit, onSelect]);
+
+	const scrollTo = useCallback(
+		(index: number) => {
+			if (emblaApi) emblaApi.scrollTo(index);
+		},
+		[emblaApi]
+	);
+
 	if (!testimonials) {
 		return (
-			<section className="py-12 md:py-24">
-				<div className="container px-4 mx-auto">
+			<section className="py-2 bg-gray-500">
+				<div className="container px-4 mx-auto ">
 					<div className="max-w-7xl mx-auto">
-						<div className="max-w-2xl mx-auto mb-20 text-center">
+						<div className="max-w-2xl mx-auto mb-20 text-center text-bas">
 							<span className="inline-flex items-center h-6 mb-6 px-2 text-xs uppercase font-medium text-yellowGreen-700 bg-blue-200 rounded-full">
 								TESTIMONIALS
 							</span>
 							<h1 className="font-heading tracking-tight text-4xl sm:text-5xl font-bold">
-								Used by hundreds of companies and happy users
+								Kata mereka yang pake Editin Foto
 							</h1>
 						</div>
 						<div className="flex items-center justify-center">
@@ -34,57 +70,58 @@ const TestimonialsSection: React.FC = () => {
 	}
 
 	return (
-		<section className="py-12 md:py-24">
+		<section className="py-10 bg-gray-50">
 			<div className="container px-4 mx-auto">
 				<div className="max-w-7xl mx-auto">
-					<div className="max-w-2xl mx-auto mb-20 text-center">
+					<div className="max-w-2xl mx-auto mb-10 text-center">
 						<span className="inline-flex items-center h-6 mb-6 px-2 text-xs uppercase font-medium text-yellowGreen-700 bg-blue-200 rounded-full">
 							TESTIMONIALS
 						</span>
 						<h1 className="font-heading tracking-tight text-4xl sm:text-5xl font-bold">
-							Used by hundreds of companies and happy users
+							Kata mereka yang pake Editin Foto
 						</h1>
 					</div>
-					<div className="flex flex-wrap -mx-4">
-						{(testimonials as Testimonial[]).map((testimonial, index) => (
-							<div
-								key={testimonial.id}
-								className={`w-full lg:w-1/3 px-4 ${
-									index < 2 ? "mb-10 lg:mb-0" : ""
-								}`}
-							>
-								<div className="flex flex-col max-w-sm mx-auto lg:max-w-none items-start h-full p-8 border border-gray-100 rounded-xl shadow-4xl">
-									<Image
-										className="block h-8 mb-8"
-										src={testimonial.logoSrc}
-										alt="Company logo"
-										width={120}
-										height={32}
-									/>
-									<div className="pr-4">
-										<p className="text-lg font-medium mb-20">
-											&quot;{testimonial.quote}&quot;
-										</p>
-										<div className="flex items-center mt-auto">
-											<Image
-												className="block h-12 w-12 rounded-full"
-												src={testimonial.avatarSrc}
-												alt={testimonial.name}
-												width={48}
-												height={48}
+
+					{/* Carousel Container */}
+					<div className="overflow-hidden" ref={emblaRef}>
+						<div className="flex touch-pan-y">
+							{(testimonials as Testimonial[]).map((testimonial) => (
+								<div
+									key={testimonial.id}
+									className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-4"
+								>
+									<div className="flex flex-col h-full bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
+										{/* Image Container with Aspect Ratio */}
+										<div className="relative w-full">
+											<img
+												src={testimonial.logoSrc}
+												alt={`Testimonial by ${testimonial.name}`}
+												className="w-full h-auto overflow-hidden object-cover"
 											/>
-											<div className="pl-4">
-												<span className="block font-semibold">
-													{testimonial.name}
-												</span>
-												<span className="text-sm text-gray-500">
-													{testimonial.title}
-												</span>
-											</div>
 										</div>
+
+										<p className="p-4 text-center text-gray-600 text-sm font-semibold italic">
+											"{testimonial.quote}"
+										</p>
 									</div>
 								</div>
-							</div>
+							))}
+						</div>
+					</div>
+
+					{/* Navigation Dots */}
+					<div className="flex justify-center mt-8 gap-2">
+						{scrollSnaps.map((_, index) => (
+							<button
+								key={index}
+								onClick={() => scrollTo(index)}
+								className={`w-3 h-3 rounded-full transition-all duration-300 ${
+									index === selectedIndex
+										? "bg-blue-600 w-8"
+										: "bg-gray-300 hover:bg-gray-400"
+								}`}
+								aria-label={`Go to slide ${index + 1}`}
+							/>
 						))}
 					</div>
 				</div>

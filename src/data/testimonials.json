@@ -1,26 +1,34 @@
 [
-  {
-    "id": 1,
-    "logoSrc": "/images/logo-clouds-logo-ipsum-6.svg",
-    "quote": "We use the app daily and we're very happy that they are created this amazing bookmarking platform.",
-    "avatarSrc": "/images/blog-avatar-medium.png",
-    "name": "Ethan Rauf",
-    "title": "Founder of AIME Inc."
-  },
-  {
-    "id": 2,
-    "logoSrc": "/images/logo-clouds-logo-ipsum-1.svg",
-    "quote": "We use the app daily and we're very happy that they are created this amazing bookmarking platform.",
-    "avatarSrc": "/images/blog-avatar-medium.png",
-    "name": "Hanna Stanton",
-    "title": "Founder of AIME Inc."
-  },
-  {
-    "id": 3,
-    "logoSrc": "/images/logo-clouds-logo-ipsum-2.svg",
-    "quote": "We use the app daily and we're very happy that they are created this amazing bookmarking platform.",
-    "avatarSrc": "/images/blog-avatar-medium.png",
-    "name": "Cooper Levin",
-    "title": "Founder of AIME Inc."
-  }
+	{
+		"id": 1,
+		"logoSrc": "https://cdn.socionity.uk/img/testi1-5f6be3d0.png",
+		"quote": "Beneran gak nyangka bisa sebagus ini. kaya foto yang diambil pake kamera DSLR. keren abis min.",
+		"avatarSrc": "/images/blog-avatar-medium.png",
+		"name": "Hanifa",
+		"title": "Founder of AIME Inc."
+	},
+	{
+		"id": 2,
+		"logoSrc": "https://cdn.socionity.uk/img/testi2-5f6c15c0.png",
+		"quote": "Mas, sumph ini apps keren banget. saya barusan nyoba fitur product, gila hasilnya ga expect sih keren abis.",
+		"avatarSrc": "/images/blog-avatar-medium.png",
+		"name": "Hanna Stanton",
+		"title": "Founder of AIME Inc."
+	},
+	{
+		"id": 3,
+		"logoSrc": "https://cdn.socionity.uk/img/testi3-5f6c402a.png",
+		"quote": "Bang, Mantap banget Aplikasinya. saya pake produk + model, hasilnya cakep banget realistic banget, padahal cuman produk biasa.",
+		"avatarSrc": "/images/blog-avatar-medium.png",
+		"name": "Cooper Levin",
+		"title": "Founder of AIME Inc."
+	},
+	{
+		"id": 4,
+		"logoSrc": "https://cdn.socionity.uk/img/testi4-5f6c61da.png",
+		"quote": "Asli, cepet banget generatenya dan rapih parah. gak perlu ribet ngedit manual. langsung jadi fotonya.",
+		"avatarSrc": "/images/blog-avatar-medium.png",
+		"name": "Cooper Levin",
+		"title": "Founder of AIME Inc."
+	}
 ]

@@ -5,6 +5,9 @@ import FeaturesGridSection from "@/features/home/components/features-grid-sectio
 import HowItWorksSection from "@/features/home/components/how-it-works-section";
 import AllFeaturesSection from "@/features/home/components/all-features-section";
 import TestimonialsSection from "@/features/home/components/testimonials-section";
+import PromoSection from "@/features/home/components/promo-section";
+import GuaranteeSection from "@/features/home/components/guarantee-section";
+import FAQSection from "@/features/home/components/faq-section";
 import CTASection from "@/components/ui/cta-section";
 import PriceSection from "@/features/home/components/price-sections";
 
@@ -41,8 +44,11 @@ export default function HomePage() {
 			<HowItWorksSection />
 			<AllFeaturesSection />
 			<PriceSection />
-			{/* <TestimonialsSection />
-			<CTASection /> */}
+			<TestimonialsSection />
+			<PromoSection />
+			<GuaranteeSection />
+			<FAQSection />
+			{/* <CTASection /> */}
 		</PageContainer>
 	);
 }

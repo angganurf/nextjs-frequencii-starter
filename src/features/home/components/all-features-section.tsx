@@ -20,15 +20,15 @@ const features: FeatureItem[] = [
 	{ title: "Kids Foto" },
 	{ title: "Foto Umrah/Haji" },
 	{ title: "Pas Foto" },
-	{ title: "Foto Maternity", isNew: true },
+	{ title: "Foto Maternity" },
 	{ title: "Desain Interior" },
 	{ title: "Desain Eksterior" },
 	{ title: "Sketsa Gambar" },
 	{ title: "Art & Karikatur" },
-	{ title: "Virtual Try On", isNew: true },
-	{ title: "Ubah Angle Kamera", isNew: true },
-	{ title: "Auto Rapi", isNew: true },
-	{ title: "Foto Artis", isNew: true },
+	{ title: "Virtual Try On" },
+	{ title: "Ubah Angle Kamera" },
+	{ title: "Auto Rapi" },
+	{ title: "Foto Artis" },
 ];
 
 const AllFeaturesSection: React.FC = () => {
