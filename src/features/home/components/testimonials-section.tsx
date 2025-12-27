@@ -70,7 +70,7 @@ const TestimonialsSection: React.FC = () => {
 	}
 
 	return (
-		<section className="py-10 bg-gray-50">
+		<section className="py-10">
 			<div className="container px-4 mx-auto">
 				<div className="max-w-7xl mx-auto">
 					<div className="max-w-2xl mx-auto mb-10 text-center">
@@ -93,10 +93,16 @@ const TestimonialsSection: React.FC = () => {
 									<div className="flex flex-col h-full bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
 										{/* Image Container with Aspect Ratio */}
 										<div className="relative w-full">
-											<img
+											<Image
 												src={testimonial.logoSrc}
 												alt={`Testimonial by ${testimonial.name}`}
 												className="w-full h-auto overflow-hidden object-cover"
+												width={500}
+												height={500}
+												objectFit="cover"
+												objectPosition="center"
+												loading="lazy"
+												quality={100}
 											/>
 										</div>
 

@@ -53,6 +53,7 @@ const PriceSection: React.FC = () => {
 							alt="Arrow down"
 							width={200}
 							height={200}
+							id="payment-form-section"
 						/>
 						{/* Payment Form Integration */}
 						<PaymentForm />

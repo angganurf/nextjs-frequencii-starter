@@ -18,7 +18,7 @@ const GuaranteeSection: React.FC = () => {
 					{/* Guarantee Description */}
 					<p className="text-lg text-gray-300 mb-8">
 						Sekali bayar, akun kamu aktif{" "}
-						<span className="text-green-400 font-semibold">seumur hidup</span>{" "}
+						<span className="text-blue-400 font-semibold">seumur hidup</span>{" "}
 						tanpa ada biaya tersembunyi di dalamnya.
 					</p>
 

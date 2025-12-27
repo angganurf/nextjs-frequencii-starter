@@ -19,7 +19,7 @@ function Footer() {
 	return (
 		<div>
 			<div>
-				<section className="mb-12">
+				<section className="bg-gray-50 pb-12">
 					<div className="container px-4 mx-auto">
 						{/* <div className="max-w-5xl mx-auto">
 							<div className="flex flex-wrap -mx-4 -mb-8">
@@ -189,7 +189,7 @@ function Footer() {
 						</div> */}
 						<div className="mt-32 pt-12 border-t border-gray-200">
 							<div className="flex flex-wrap items-center -mx-4">
-								<div className="w-full lg:w-1/3 px-4 flex justify-center lg:justify-start mb-6 lg:mb-0">
+								<div className="w-full px-4 flex justify-center mb-6 mb-0">
 									<Image
 										src="/images/editin-logo.png"
 										alt="Frequencii logo"
@@ -197,15 +197,15 @@ function Footer() {
 										height={40}
 									/>
 								</div>
-								<div className="w-full lg:w-1/3 px-4 text-center lg:text-left mb-6 lg:mb-0">
+								<div className="w-full px-4 text-center mb-6">
 									<p className="text-gray-500">
 										Made by{" "}
 										<a href="https://www.editifoto.site">Editin Ai Studio</a>.
 										All rights reserved.
 									</p>
 								</div>
-								<div className="w-full lg:w-1/3 px-4">
-									<div className="flex items-center justify-center lg:justify-end space-x-6">
+								<div className="w-full px-4">
+									<div className="flex items-center justify-center space-x-6">
 										<Link
 											href={getRouteByName("privacyPolicy")}
 											className="text-gray-500 hover:text-gray-900 text-sm font-medium transition duration-200"

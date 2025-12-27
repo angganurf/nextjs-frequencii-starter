@@ -85,10 +85,10 @@ const PaymentForm: React.FC = () => {
 	return (
 		<div className="max-w-md mx-auto bg-white p-6 rounded-xl shadow-md border border-gray-100 ">
 			<h3 className="text-xl font-bold mb-2 text-center">
-				Apps dikirim ke email anda
+				Apps dikirim ke email kamu
 			</h3>
 			<span className="inline-flex items-center italic h-auto mb-4 px-8 py-2 text-sm leading-4 font-semibold text-[#F14424] bg-red-200 rounded-full">
-				Pastikan email diisi dengan benar, <br />
+				Jadi Pastiin email diisi dengan benar ya!, <br />
 				supaya appsnya terkirim!
 			</span>
 			<hr className="mb-6 border-gray-200"></hr>

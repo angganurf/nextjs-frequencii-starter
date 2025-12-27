@@ -18,7 +18,7 @@ const Header = memo(() => {
 	return (
 		<header role="banner" className="sticky top-0 z-50">
 			<nav
-				className="relative bg-white/80 backdrop-blur-md shadow-sm"
+				className="relative bg-white/80 backdrop-blur-sm shadow-[0_5px_10px_-6px_rgba(0,0,0,0.1)]"
 				role="navigation"
 				aria-label="Main navigation"
 			>
@@ -41,10 +41,10 @@ const Header = memo(() => {
 						</Link>
 
 						{/* Burger Menu Button - Absolute Right */}
-						<div className="absolute right-0 top-1/2 -translate-y-1/2">
+						<div className="absolute right-0 top-1/2 -translate-y-1/2 duration-300">
 							<button
 								onClick={toggleMenu}
-								className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
+								className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none cursor-pointer duration-300 transition-all"
 								aria-label="Toggle menu"
 							>
 								<svg
@@ -77,33 +77,33 @@ const Header = memo(() => {
 
 				{/* Dropdown Menu */}
 				{isMenuOpen && (
-					<div className="absolute top-16 left-0 w-full bg-white shadow-lg border-t border-gray-100 p-4 flex flex-col items-center space-y-4 md:space-y-0 md:items-end md:pr-8">
+					<div className="absolute top-16  w-full bg-white shadow-lg border-t border-gray-100 p-4 flex flex-col items-center space-y-0  ">
 						{/* Mobile view usually stacks, but user asked for just a menu on top right. 
                             Let's make it a standard dropdown list. */}
 						<Link
 							href="/"
-							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center md:text-right"
+							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center"
 							onClick={() => setIsMenuOpen(false)}
 						>
 							Home
 						</Link>
 						<Link
 							href="/privacy-policy"
-							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center md:text-right"
+							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center"
 							onClick={() => setIsMenuOpen(false)}
 						>
 							Kebijakan Privasi
 						</Link>
 						<Link
 							href="/terms-of-service"
-							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center md:text-right"
+							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center"
 							onClick={() => setIsMenuOpen(false)}
 						>
 							Ketentuan Layanan
 						</Link>
 						<Link
 							href="/contact"
-							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center md:text-right"
+							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center"
 							onClick={() => setIsMenuOpen(false)}
 						>
 							Hubungi Kami

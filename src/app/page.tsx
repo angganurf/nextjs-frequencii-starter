@@ -1,14 +1,14 @@
 import PageContainer from "@/components/layout/page-container";
 import HeroSection from "@/features/home/components/hero-section";
-import FeatureHighlightSection from "@/features/home/components/feature-highlight-section";
-import FeaturesGridSection from "@/features/home/components/features-grid-section";
+import BenefitsSection from "@/features/home/components/benefits-section";
 import HowItWorksSection from "@/features/home/components/how-it-works-section";
 import AllFeaturesSection from "@/features/home/components/all-features-section";
 import TestimonialsSection from "@/features/home/components/testimonials-section";
 import PromoSection from "@/features/home/components/promo-section";
 import GuaranteeSection from "@/features/home/components/guarantee-section";
 import FAQSection from "@/features/home/components/faq-section";
-import CTASection from "@/components/ui/cta-section";
+import ComparisonSection from "@/features/home/components/comparison-section";
+
 import PriceSection from "@/features/home/components/price-sections";
 
 /**
@@ -41,9 +41,11 @@ export default function HomePage() {
 			{/* Feature sections */}
 			{/* <FeatureHighlightSection /> */}
 			{/* <FeaturesGridSection /> */}
+			<BenefitsSection />
 			<HowItWorksSection />
 			<AllFeaturesSection />
 			<PriceSection />
+			<ComparisonSection />
 			<TestimonialsSection />
 			<PromoSection />
 			<GuaranteeSection />

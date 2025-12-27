@@ -25,7 +25,9 @@ export default function RootLayout({
 				className="font-body bg-body text-body antialiased"
 				suppressHydrationWarning
 			>
-				{children}
+				<div className="max-w-[510px] md:max-w-[688px] min-h-screen flex w-full flex-col mx-auto">
+					{children}
+				</div>
 			</body>
 		</html>
 	);
