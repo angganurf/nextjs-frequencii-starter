@@ -55,15 +55,12 @@ export async function POST(req: Request) {
 
 		// Handle 'payment_status' event
 		if (event === "payment_status") {
-			const { merchant_ref, status, customer_email, customer_name, reference } =
-				body;
+			const { merchant_ref, status, reference } = body;
 
 			console.log("📋 Payment Status Details:");
 			console.log("   - Merchant Ref:", merchant_ref);
 			console.log("   - Tripay Reference:", reference);
 			console.log("   - Status:", status);
-			console.log("   - Customer Email:", customer_email);
-			console.log("   - Customer Name:", customer_name);
 
 			if (status === "PAID") {
 				console.log(`✅ Payment PAID for order ${merchant_ref}`);
@@ -139,8 +136,8 @@ export async function POST(req: Request) {
 								process.env.RESEND_FROM_EMAIL
 							);
 
-							const totalAmount = body.total_amount || 1000;
-							const amount = 1000;
+							const totalAmount = body.total_amount || 95000;
+							const amount = 95000;
 							const fee = body.total_fee || totalAmount - amount;
 							const invoiceData = {
 								date: new Date().toLocaleDateString("id-ID", {

@@ -24,11 +24,11 @@ const HeroSection: React.FC = () => {
 				<div className="relative max-w-lg lg:max-w-3xl mb-14 mx-auto text-center">
 					<div className="max-w-lg md:max-w-2xl px-4 mx-auto">
 						<h1 className="font-heading tracking-tight text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-							Ai yang bisa Editin foto kamu jadi foto yang super cakep.
+							Ai yang bisa Editin foto kamu jadi foto yang super kece.
 						</h1>
 						<p className="max-w-lg mx-auto text-lg text-gray-700 mb-10">
-							Tools edit foto yang punya banyak fitur, ga perlu mikirin limit
-							edit, sekali bayar semua sepuasnya.
+							Tools edit foto yang punya banyak fitur, ga perlu mikirin limit.
+							Sekali bayar, semua sepuasnya.
 						</p>
 
 						{/* CTA Button */}

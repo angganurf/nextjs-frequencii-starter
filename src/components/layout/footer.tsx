@@ -19,7 +19,7 @@ function Footer() {
 	return (
 		<div>
 			<div>
-				<section className="py-12 md:pt-24">
+				<section className="mb-12">
 					<div className="container px-4 mx-auto">
 						{/* <div className="max-w-5xl mx-auto">
 							<div className="flex flex-wrap -mx-4 -mb-8">
