@@ -89,7 +89,7 @@ const TestimonialsSection: React.FC = () => {
 							{(testimonials as Testimonial[]).map((testimonial) => (
 								<div
 									key={testimonial.id}
-									className="flex-[0_0_50%] min-w-0 px-4 cursor-grab"
+									className="flex-[0_0_100%] md:flex-[0_0_33.333333%] lg:flex-[0_0_50%] min-w-0 px-4 cursor-grab"
 								>
 									<div className="flex flex-col h-full bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
 										{/* Image Container with Aspect Ratio */}
