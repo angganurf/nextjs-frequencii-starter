@@ -14,6 +14,11 @@ export const metadata: Metadata = {
 		"digital assets",
 		"marketing workflow",
 	],
+	verification: {
+		other: {
+			"facebook-domain-verification": "a5z057s2ahzra3vk5c0aipe3t837lm",
+		},
+	},
 };
 
 export default function RootLayout({
