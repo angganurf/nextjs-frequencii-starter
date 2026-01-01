@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SocialProofAlert from "@/components/ui/social-proof-alert";
+import FacebookPixel from "@/components/facebook-pixel";
 
 export const metadata: Metadata = {
 	title: "Editin foto - Tools Editin Foto Ai Professional.",
@@ -30,8 +31,8 @@ export default function RootLayout({
 					{children}
 				</div>
 				<SocialProofAlert />
+				<FacebookPixel />
 			</body>
 		</html>
 	);
 }
-
