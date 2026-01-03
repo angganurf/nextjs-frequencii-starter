@@ -45,8 +45,9 @@ model Transaction {
   user User @relation(fields: [userId], references: [id])
 
   // CAPI Tracking
-  ipAddress String?
-  userAgent String?
-  fbp       String?
-  fbc       String?
+  ipAddress     String?
+  userAgent     String?
+  fbp           String?
+  fbc           String?
+  customerPhone String?
 }

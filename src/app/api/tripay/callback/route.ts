@@ -194,7 +194,9 @@ export async function POST(req: Request) {
 									fbp: transaction.fbp,
 									fbc: transaction.fbc,
 									em: userEmailForCapi ? hashData(userEmailForCapi) : null,
-									ph: null,
+									ph: transaction.customerPhone
+										? hashData(transaction.customerPhone)
+										: null,
 								},
 								custom_data: {
 									currency: "IDR",

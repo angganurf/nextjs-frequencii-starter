@@ -67,7 +67,10 @@ async function runSimulation() {
             method: "BCAVA",
             customer_name: "Faisal Zailani",
             customer_email: "fsstudio234@gmail.com",
-            customer_phone: "08212332450"
+            customer_phone: "08212332450",
+            // Dummy Pixel Cookies (Simulation Only)
+            fbp: "fb.1.1704283200000.1234567890",
+            fbc: "fb.1.1704283200000.IwAR0_example_click_id"
         };
 
         const txOptions = {

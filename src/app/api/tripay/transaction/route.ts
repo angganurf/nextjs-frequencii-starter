@@ -120,6 +120,7 @@ export async function POST(req: Request) {
 					userAgent: userAgent,
 					fbp: fbp || null,
 					fbc: fbc || null,
+					customerPhone: customer_phone,
 				},
 			});
 		}
