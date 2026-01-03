@@ -185,6 +185,17 @@ export async function POST(req: Request) {
 							console.log("🚀 Sending CAPI Purchase Event...");
 							const userEmailForCapi = userEmail || transaction.user.email;
 
+							// Prepare User Data for Matching
+							const fullName = transaction.user.fullName || "";
+							const nameParts = fullName.trim().toLowerCase().split(/\s+/);
+							const fn = nameParts.length > 0 ? nameParts[0] : "";
+							const ln =
+								nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
+							const city = (transaction.user.address || "")
+								.trim()
+								.toLowerCase()
+								.replace(/[^a-z]/g, "");
+
 							await sendCapiEvent({
 								event_name: "Purchase",
 								event_id: merchant_ref,
@@ -197,6 +208,11 @@ export async function POST(req: Request) {
 									ph: transaction.customerPhone
 										? hashData(transaction.customerPhone)
 										: null,
+									fn: fn ? hashData(fn) : null,
+									ln: ln ? hashData(ln) : null,
+									ct: city ? hashData(city) : null,
+									country: hashData("id"),
+									external_id: hashData(String(transaction.userId)),
 								},
 								custom_data: {
 									currency: "IDR",

@@ -10,6 +10,13 @@ interface UserData {
 	fbc?: string | null;
 	em?: string | null; // hashed email
 	ph?: string | null; // hashed phone
+	fn?: string | null; // hashed first name
+	ln?: string | null; // hashed last name
+	ct?: string | null; // hashed city
+	st?: string | null; // hashed state
+	zp?: string | null; // hashed zip
+	country?: string | null; // hashed country
+	external_id?: string | null; // hashed external id
 }
 
 interface CustomData {
@@ -46,8 +53,15 @@ export const sendCapiEvent = async (eventData: EventData) => {
 					client_user_agent: eventData.user_data.client_user_agent,
 					fbp: eventData.user_data.fbp,
 					fbc: eventData.user_data.fbc,
-					em: eventData.user_data.em, // already hashed
-					ph: eventData.user_data.ph, // already hashed
+					em: eventData.user_data.em,
+					ph: eventData.user_data.ph,
+					fn: eventData.user_data.fn,
+					ln: eventData.user_data.ln,
+					ct: eventData.user_data.ct,
+					st: eventData.user_data.st,
+					zp: eventData.user_data.zp,
+					country: eventData.user_data.country,
+					external_id: eventData.user_data.external_id,
 				},
 				custom_data: eventData.custom_data,
 			},
