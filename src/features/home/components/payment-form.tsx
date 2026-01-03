@@ -56,6 +56,21 @@ const PaymentForm: React.FC = () => {
 			return;
 		}
 
+		// Facebook Pixel: Initiate Checkout
+		// @ts-ignore
+		if (typeof window !== "undefined" && window.fbq) {
+			// @ts-ignore
+			window.fbq("track", "InitiateCheckout", {
+				value: 95000,
+				currency: "IDR",
+			});
+		}
+
+		// Get FB Cookies
+		const { getFbp, getFbc } = await import("@/lib/fb-utils");
+		const fbp = getFbp();
+		const fbc = getFbc();
+
 		try {
 			const res = await fetch("/api/tripay/transaction", {
 				method: "POST",
@@ -66,6 +81,8 @@ const PaymentForm: React.FC = () => {
 					customer_email: formData.email,
 					customer_phone: formData.phone,
 					customer_city: formData.city,
+					fbp,
+					fbc,
 				}),
 			});
 

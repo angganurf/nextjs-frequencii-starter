@@ -147,7 +147,13 @@ async function runSimulation() {
             console.log('1. Tripay Transaction validated.');
             console.log('2. User/Transaction created in DB (Post-Validation).');
             console.log('3. Callback processed (PAID status).');
-            console.log('4. User Activated & Credentials Generated (Check Email + Admin Notif).');
+            console.log('4. User Activated & Credentials Generated.');
+
+            if (cbResponse.capi_sent) {
+                console.log('🚀 Sending CAPI Purchase Event... ✅ CAPI Event Sent (Purchase)');
+            } else {
+                console.log('⚠️ CAPI Event NOT Sent (Check server logs, possibly missing FB_ACCESS_TOKEN)');
+            }
         } else {
             console.error('\n❌ Callback Failed.');
         }

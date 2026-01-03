@@ -125,16 +125,13 @@ export async function POST(req: Request) {
 						console.log("✅ Transaction status updated to PAID");
 
 						// Send Email - Use email from database
+						let emailSent = false;
 						if (userEmail) {
 							console.log("📧 Preparing to send email to:", userEmail);
 
 							// Check Resend API Key
 							const resendKey = process.env.RESEND_API_KEY;
 							console.log("📧 RESEND_API_KEY exists:", !!resendKey);
-							console.log(
-								"📧 RESEND_FROM_EMAIL:",
-								process.env.RESEND_FROM_EMAIL
-							);
 
 							const totalAmount = body.total_amount || 95000;
 							const amount = 95000;
@@ -153,18 +150,16 @@ export async function POST(req: Request) {
 								total: totalAmount,
 							};
 
-							console.log("📧 Invoice data:", JSON.stringify(invoiceData));
-
-							const emailSent = await sendProductEmail({
+							const emailResult = await sendProductEmail({
 								to: userEmail,
 								customerName: userName,
 								credentials: { username, password: plainPassword },
 								invoice: invoiceData,
 							});
+							emailSent = !!emailResult;
 
 							if (emailSent) {
 								console.log(`✅ Product email sent to ${userEmail}`);
-
 								// Send Admin Notification
 								const adminSent = await sendAdminNotification({
 									customerName: userName,
@@ -182,6 +177,38 @@ export async function POST(req: Request) {
 						} else {
 							console.error("❌ No email found in user record!");
 						}
+
+						// Send CAPI Event (Independent of Email)
+						let capiSent = false;
+						try {
+							const { sendCapiEvent, hashData } = await import("@/lib/capi");
+							console.log("🚀 Sending CAPI Purchase Event...");
+							const userEmailForCapi = userEmail || transaction.user.email;
+
+							await sendCapiEvent({
+								event_name: "Purchase",
+								event_id: merchant_ref,
+								user_data: {
+									client_ip_address: transaction.ipAddress,
+									client_user_agent: transaction.userAgent,
+									fbp: transaction.fbp,
+									fbc: transaction.fbc,
+									em: userEmailForCapi ? hashData(userEmailForCapi) : null,
+									ph: null,
+								},
+								custom_data: {
+									currency: "IDR",
+									value: body.total_amount || 95000,
+									content_name: "Editin Foto Premium - Unlimited",
+								},
+							});
+							capiSent = true;
+						} catch (capiError) {
+							console.error("❌ Failed to send CAPI event:", capiError);
+						}
+
+						console.log("=== TRIPAY CALLBACK COMPLETED ===");
+						return NextResponse.json({ success: true, capi_sent: capiSent });
 					} else {
 						console.error(
 							`❌ Transaction NOT FOUND for reference: ${tripayReference}`
@@ -201,9 +228,18 @@ export async function POST(req: Request) {
 								status: t.status,
 							}))
 						);
+
+						return NextResponse.json(
+							{ success: false, message: "Transaction not found" },
+							{ status: 404 }
+						);
 					}
 				} catch (dbError) {
 					console.error("❌ Database Error in Callback:", dbError);
+					return NextResponse.json(
+						{ success: false, message: "Database error" },
+						{ status: 500 }
+					);
 				}
 			} else if (status === "EXPIRED" || status === "FAILED") {
 				console.log(`⚠️ Payment ${status} for order ${merchant_ref}`);

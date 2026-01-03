@@ -43,4 +43,10 @@ model Transaction {
   createdAt   DateTime @default(now())
   
   user User @relation(fields: [userId], references: [id])
+
+  // CAPI Tracking
+  ipAddress String?
+  userAgent String?
+  fbp       String?
+  fbc       String?
 }

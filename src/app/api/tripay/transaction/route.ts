@@ -25,6 +25,11 @@ export async function POST(req: Request) {
 			customer_city,
 		} = body;
 
+		const ip = req.headers.get("x-forwarded-for") || "127.0.0.1";
+		const userAgent = req.headers.get("user-agent") || "";
+		// Retrieve FB cookies from body (sent by client)
+		const { fbp, fbc } = body;
+
 		// Fixed amount for the product
 		const amount = 95000;
 		const merchantRef = `TRX-${Date.now()}`;
@@ -110,6 +115,11 @@ export async function POST(req: Request) {
 					status: "PENDING",
 					referenceId: data.data.reference,
 					channel: method,
+					// Store CAPI Data
+					ipAddress: ip,
+					userAgent: userAgent,
+					fbp: fbp || null,
+					fbc: fbc || null,
 				},
 			});
 		}

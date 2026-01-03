@@ -10,6 +10,7 @@ import FAQSection from "@/features/home/components/faq-section";
 import ComparisonSection from "@/features/home/components/comparison-section";
 
 import PriceSection from "@/features/home/components/price-sections";
+import FacebookViewContent from "@/components/facebook-view-content";
 
 /**
  * Homepage component
@@ -34,6 +35,7 @@ export default function HomePage() {
 			seo={seoData}
 		>
 			{/* Hero section with header */}
+			<FacebookViewContent />
 			<section className="relative pb-24">
 				<HeroSection />
 			</section>
