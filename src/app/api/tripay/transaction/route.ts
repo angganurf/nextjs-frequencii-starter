@@ -25,8 +25,16 @@ export async function POST(req: Request) {
 			customer_city,
 		} = body;
 
-		const ip = req.headers.get("x-forwarded-for") || "127.0.0.1";
-		const userAgent = req.headers.get("user-agent") || "";
+		// Robust IP Extraction
+		const ip =
+			req.headers.get("x-forwarded-for")?.split(",")[0] ||
+			req.headers.get("x-real-ip") ||
+			"127.0.0.1";
+
+		const userAgent = req.headers.get("user-agent") || "Unknown";
+
+		console.log("📍 Captured IP:", ip);
+		console.log("📱 Captured User Agent:", userAgent);
 		// Retrieve FB cookies from body (sent by client)
 		const { fbp, fbc } = body;
 
