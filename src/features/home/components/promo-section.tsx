@@ -59,6 +59,9 @@ const PromoSection: React.FC = () => {
 					{/* CTA Button */}
 					<Link
 						onClick={() => {
+							import("@/lib/fb-events").then(({ trackViewContent }) => {
+								trackViewContent();
+							});
 							document.getElementById("payment-form-section")?.scrollIntoView({
 								behavior: "smooth",
 							});

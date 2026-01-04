@@ -37,6 +37,9 @@ const HeroSection: React.FC = () => {
 							size="default"
 							className="group"
 							onClick={() => {
+								import("@/lib/fb-events").then(({ trackViewContent }) => {
+									trackViewContent();
+								});
 								document.getElementById("payment-section")?.scrollIntoView({
 									behavior: "smooth",
 								});

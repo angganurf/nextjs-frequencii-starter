@@ -142,6 +142,9 @@ const ComparisonSection: React.FC = () => {
 							size="default"
 							className="group"
 							onClick={() => {
+								import("@/lib/fb-events").then(({ trackViewContent }) => {
+									trackViewContent();
+								});
 								document
 									.getElementById("payment-form-section")
 									?.scrollIntoView({

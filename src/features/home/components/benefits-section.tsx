@@ -134,6 +134,11 @@ const BenefitsSection: React.FC = () => {
 						</p>
 						<Link
 							href="#payment-section"
+							onClick={() => {
+								import("@/lib/fb-events").then(({ trackViewContent }) => {
+									trackViewContent();
+								});
+							}}
 							className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-600 bg-white rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
 						>
 							Lihat Harga Spesial →

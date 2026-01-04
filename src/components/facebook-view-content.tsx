@@ -4,23 +4,28 @@ import { useEffect } from "react";
 
 const FacebookViewContent = () => {
 	useEffect(() => {
-		let attempts = 0;
-		const maxAttempts = 10;
+		const handleScroll = async () => {
+			const { trackViewContent } = await import("@/lib/fb-events");
+			const section = document.getElementById("payment-section");
 
-		const trackEvent = () => {
-			if (typeof window !== "undefined" && window.fbq) {
-				window.fbq("track", "ViewContent", {
-					content_name: "Editin Foto AI Studio",
-					value: 95000,
-					currency: "IDR",
-				});
-			} else if (attempts < maxAttempts) {
-				attempts++;
-				setTimeout(trackEvent, 500); // Retry every 500ms
+			if (section) {
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								trackViewContent();
+								observer.disconnect(); // Stop observing after triggered
+							}
+						});
+					},
+					{ threshold: 0.5 } // Trigger when 50% visible
+				);
+				observer.observe(section);
 			}
 		};
 
-		trackEvent();
+		// Slight delay to ensure DOM is ready
+		setTimeout(handleScroll, 1000);
 	}, []);
 
 	return null;
