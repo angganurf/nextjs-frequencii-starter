@@ -69,7 +69,7 @@ const PromoSection: React.FC = () => {
 						href="#"
 						className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-indigo-700 bg-yellow-400 rounded-full hover:bg-yellow-300 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform mb-8"
 					>
-						Beli Sekarang →
+						Ambil Promo →
 					</Link>
 
 					{/* Warning/Urgency */}

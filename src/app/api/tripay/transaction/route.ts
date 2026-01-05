@@ -23,6 +23,7 @@ export async function POST(req: Request) {
 			customer_email,
 			customer_phone,
 			customer_city,
+			user_agent, // Receive from client body
 		} = body;
 
 		// Robust IP Extraction
@@ -31,10 +32,12 @@ export async function POST(req: Request) {
 			req.headers.get("x-real-ip") ||
 			"127.0.0.1";
 
-		const userAgent = req.headers.get("user-agent") || "Unknown";
+		// Prioritize Client-Side User Agent (from body), fallback to Header
+		const finalUserAgent =
+			user_agent || req.headers.get("user-agent") || "Unknown";
 
 		console.log("📍 Captured IP:", ip);
-		console.log("📱 Captured User Agent:", userAgent);
+		console.log("📱 Captured User Agent:", finalUserAgent);
 		// Retrieve FB cookies from body (sent by client)
 		const { fbp, fbc } = body;
 
@@ -125,7 +128,7 @@ export async function POST(req: Request) {
 					channel: method,
 					// Store CAPI Data
 					ipAddress: ip,
-					userAgent: userAgent,
+					userAgent: finalUserAgent,
 					fbp: fbp || null,
 					fbc: fbc || null,
 					customerPhone: customer_phone,

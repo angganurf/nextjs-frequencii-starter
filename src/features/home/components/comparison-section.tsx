@@ -153,7 +153,7 @@ const ComparisonSection: React.FC = () => {
 							}}
 							aria-label="Get started with Editin Foto"
 						>
-							Beli Sekarang →
+							Coba Sekarang →
 						</Button>
 					</div>
 				</div>

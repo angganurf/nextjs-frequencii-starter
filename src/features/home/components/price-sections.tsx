@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import PaymentForm from "./payment-form";
+import Button from "@/components/ui/button";
 
 const PriceSection: React.FC = () => {
 	return (
@@ -37,11 +40,30 @@ const PriceSection: React.FC = () => {
 						<h1 className="font-heading tracking-tight text-4xl sm:text-5xl font-bold mt-5">
 							<span className="bg-blue-600 px-4 text-white">95rb</span>
 						</h1>
-						<div className="mt-6 text-center">
+						<div className="mt-6 text-center mb-3">
 							<p className="text-xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
 								Unlimited Access, Semua Sepuasnya.
 							</p>
 						</div>
+						{/* CTA Button */}
+						<Button
+							variant="primary"
+							size="default"
+							className="group"
+							onClick={() => {
+								import("@/lib/fb-events").then(({ trackViewContent }) => {
+									trackViewContent();
+								});
+								document
+									.getElementById("payment-form-section")
+									?.scrollIntoView({
+										behavior: "smooth",
+									});
+							}}
+							aria-label="Get started with Editin Foto"
+						>
+							Beli Sekarang
+						</Button>
 						<p className="text-md italic mt-2 leading-7">
 							Harga segitu ga ada apa-apanya dibanding karya super kece. <br />
 							Fitur bakal terus bertambah, support 24/7, dan garansi lifetime.

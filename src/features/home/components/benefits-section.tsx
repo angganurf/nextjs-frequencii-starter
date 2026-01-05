@@ -14,11 +14,11 @@ const BenefitsSection: React.FC = () => {
 							Benefit
 						</span>
 						<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6 px-2">
-							Dapetin Foto Kualitas Fotografer Profesional{" "}
-							<span className="text-blue-600">Tanpa Ribet</span>
+							Edit Foto Jadi Profesional dalam 10 Detik{" "}
+							<span className="text-blue-600">Tanpa Studio & Tanpa Ribet.</span>
 						</h2>
 						<p className="text-xl text-gray-600">
-							Cukup Sekali Bayar, Semua Sepuasnya!
+							Upload foto → pilih style → hasil langsung siap jual.
 						</p>
 					</div>
 

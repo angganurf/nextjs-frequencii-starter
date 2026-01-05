@@ -97,14 +97,20 @@ const TestimonialsSection: React.FC = () => {
 											<Image
 												src={testimonial.logoSrc}
 												alt={`Testimonial by ${testimonial.name}`}
-												className="w-full h-auto overflow-hidden object-cover"
+												className="w-full h-auto overflow-hidden object-cover object-center"
 												width={500}
 												height={500}
-												objectFit="cover"
-												objectPosition="center"
 												loading="lazy"
-												quality={100}
+												quality={75}
+												unoptimized
 											/>
+										</div>
+
+										<div className="flex justify-center items-center gap-1 mt-4">
+											<span className="font-bold text-gray-900">
+												{testimonial.id % 2 === 0 ? "5,0" : "4,9"}
+											</span>
+											<span className="text-xs">⭐⭐⭐⭐⭐</span>
 										</div>
 
 										<p className="p-4 text-center text-gray-600 text-sm font-semibold italic">

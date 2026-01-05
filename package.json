@@ -21,6 +21,7 @@
 		"react": "19.1.0",
 		"react-dom": "19.1.0",
 		"resend": "^6.6.0",
+		"sharp": "^0.34.5",
 		"swagger-ui-react": "^5.31.0"
 	},
 	"devDependencies": {

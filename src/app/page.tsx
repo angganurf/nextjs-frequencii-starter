@@ -1,16 +1,44 @@
 import PageContainer from "@/components/layout/page-container";
 import HeroSection from "@/features/home/components/hero-section";
-import BenefitsSection from "@/features/home/components/benefits-section";
-import HowItWorksSection from "@/features/home/components/how-it-works-section";
-import AllFeaturesSection from "@/features/home/components/all-features-section";
-import TestimonialsSection from "@/features/home/components/testimonials-section";
-import PromoSection from "@/features/home/components/promo-section";
-import GuaranteeSection from "@/features/home/components/guarantee-section";
-import FAQSection from "@/features/home/components/faq-section";
-import ComparisonSection from "@/features/home/components/comparison-section";
-
-import PriceSection from "@/features/home/components/price-sections";
+import dynamic from "next/dynamic";
 import FacebookViewContent from "@/components/facebook-view-content";
+
+const BenefitsSection = dynamic(
+	() => import("@/features/home/components/benefits-section"),
+	{ ssr: true }
+);
+const HowItWorksSection = dynamic(
+	() => import("@/features/home/components/how-it-works-section"),
+	{ ssr: true }
+);
+const AllFeaturesSection = dynamic(
+	() => import("@/features/home/components/all-features-section"),
+	{ ssr: true }
+);
+const TestimonialsSection = dynamic(
+	() => import("@/features/home/components/testimonials-section"),
+	{ ssr: true }
+);
+const PromoSection = dynamic(
+	() => import("@/features/home/components/promo-section"),
+	{ ssr: true }
+);
+const GuaranteeSection = dynamic(
+	() => import("@/features/home/components/guarantee-section"),
+	{ ssr: true }
+);
+const FAQSection = dynamic(
+	() => import("@/features/home/components/faq-section"),
+	{ ssr: true }
+);
+const ComparisonSection = dynamic(
+	() => import("@/features/home/components/comparison-section"),
+	{ ssr: true }
+);
+const PriceSection = dynamic(
+	() => import("@/features/home/components/price-sections"),
+	{ ssr: true }
+);
 
 /**
  * Homepage component

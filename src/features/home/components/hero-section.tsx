@@ -18,6 +18,7 @@ const HeroSection: React.FC = () => {
 					alt=""
 					fill
 					priority
+					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
 				/>
 
 				{/* Hero content */}
@@ -46,7 +47,7 @@ const HeroSection: React.FC = () => {
 							}}
 							aria-label="Get started with Editin Foto"
 						>
-							GAS, Mau!
+							Coba Sekarang
 						</Button>
 					</div>
 				</div>
