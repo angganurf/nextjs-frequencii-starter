@@ -24,6 +24,13 @@ export async function generateMetadata({
 				"facebook-domain-verification": "a5z057s2ahzra3vk5c0aipe3t837lm",
 			},
 		},
+		openGraph: {
+			images: ["/images/og-preview.png"],
+		},
+		twitter: {
+			card: "summary_large_image",
+			images: ["/images/og-preview.png"],
+		},
 	};
 }
 
