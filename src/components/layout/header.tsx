@@ -3,12 +3,15 @@
 import { memo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "@/components/language-switcher";
 
 /**
  * Main navigation header component
  * Simplified to only show centered logo and be sticky
  */
 const Header = memo(() => {
+	const t = useTranslations("Navigation");
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const toggleMenu = () => {
@@ -24,9 +27,14 @@ const Header = memo(() => {
 			>
 				<div className="container mx-auto px-4">
 					<div className="relative flex h-16 items-center justify-center">
+						{/* Language Switcher - Absolute Left */}
+						<div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+							<LanguageSwitcher />
+						</div>
+
 						{/* Logo - Centered */}
 						<Link
-							className="inline-block"
+							className="inline-block relative z-0"
 							href="/"
 							aria-label="Frequencii - Home"
 						>
@@ -41,7 +49,7 @@ const Header = memo(() => {
 						</Link>
 
 						{/* Burger Menu Button - Absolute Right */}
-						<div className="absolute right-0 top-1/2 -translate-y-1/2 duration-300">
+						<div className="absolute right-0 top-1/2 -translate-y-1/2 duration-300 z-10">
 							<button
 								onClick={toggleMenu}
 								className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none cursor-pointer duration-300 transition-all"
@@ -85,28 +93,28 @@ const Header = memo(() => {
 							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center"
 							onClick={() => setIsMenuOpen(false)}
 						>
-							Home
+							{t("home")}
 						</Link>
 						<Link
 							href="/privacy-policy"
 							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center"
 							onClick={() => setIsMenuOpen(false)}
 						>
-							Kebijakan Privasi
+							{t("privacyPolicy")}
 						</Link>
 						<Link
 							href="/terms-of-service"
 							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center"
 							onClick={() => setIsMenuOpen(false)}
 						>
-							Ketentuan Layanan
+							{t("termsOfService")}
 						</Link>
 						<Link
 							href="/contact"
 							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center"
 							onClick={() => setIsMenuOpen(false)}
 						>
-							Hubungi Kami
+							{t("contact")}
 						</Link>
 					</div>
 				)}

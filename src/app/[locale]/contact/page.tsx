@@ -1,27 +1,29 @@
+"use client";
+
 import PageContainer from "@/components/layout/page-container";
 import Button from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
+	const t = useTranslations("Contact");
 	const seoData = {
 		title: "Kontak Support - Editin Foto",
 		description: "Hubungi tim support Editin Foto.",
 	};
 
 	return (
-		<PageContainer title="Kontak Support" seo={seoData}>
+		<PageContainer title={t("title")} seo={seoData}>
 			<section className="py-16 md:py-28 bg-gray-50/50">
 				<div className="container px-4 mx-auto">
 					<div className="max-w-3xl mx-auto text-center">
 						<span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-semibold mb-4">
-							Butuh Bantuan?
+							{t("badge")}
 						</span>
 						<h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-gray-900">
-							Hubungi Kami
+							{t("title")}
 						</h1>
 						<p className="text-gray-500 text-lg md:text-xl mb-12 leading-relaxed">
-							Tim support kami siap membantu Anda 24/7.{" "}
-							<br className="hidden md:block" />
-							Jangan ragu untuk menghubungi kami jika ada kendala.
+							{t("subtitle")}
 						</p>
 
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
@@ -38,10 +40,10 @@ export default function ContactPage() {
 									</svg>
 								</div>
 								<h3 className="text-xl font-bold mb-2 text-gray-900">
-									WhatsApp Support
+									{t("whatsappTitle")}
 								</h3>
 								<p className="text-gray-500 mb-6 text-sm">
-									Respon cepat untuk kendala teknis dan pertanyaan umum.
+									{t("whatsappDesc")}
 								</p>
 								<a
 									href="https://wa.me/6285770044691"
@@ -54,7 +56,7 @@ export default function ContactPage() {
 										fullWidth
 										className="bg-green-600 hover:bg-green-700 border-transparent"
 									>
-										Chat via WhatsApp
+										{t("whatsappBtn")}
 									</Button>
 								</a>
 							</div>
@@ -84,15 +86,13 @@ export default function ContactPage() {
 									</svg>
 								</div>
 								<h3 className="text-xl font-bold mb-2 text-gray-900">
-									Alamat Kantor
+									{t("addressTitle")}
 								</h3>
-								<p className="text-gray-500 mb-6 text-sm">
-									Kunjungi studio kami jika Anda berada di area sekitar.
-								</p>
+								<p className="text-gray-500 mb-6 text-sm">{t("addressDesc")}</p>
 								<div className="text-gray-700 font-medium">
-									<p>Editin Ai Studio</p>
+									<p>{t("addressLabel")}</p>
 									<p className="text-gray-500 font-normal mt-1">
-										Sukabumi, Indonesia
+										{t("addressCity")}
 									</p>
 								</div>
 							</div>

@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Button from "@/components/ui/button";
 
+import { useTranslations } from "next-intl";
+
 interface PaymentChannel {
 	code: string;
 	name: string;
@@ -12,6 +14,8 @@ interface PaymentChannel {
 }
 
 const PaymentForm: React.FC = () => {
+	const t = useTranslations("PaymentForm");
+	const tPayment = useTranslations("Payment");
 	const [loading, setLoading] = useState(false);
 	const [channels, setChannels] = useState<PaymentChannel[]>([]);
 	const [selectedChannel, setSelectedChannel] = useState<string>("");
@@ -51,7 +55,7 @@ const PaymentForm: React.FC = () => {
 		setError(null);
 
 		if (!selectedChannel) {
-			setError("Please select a payment method.");
+			setError(t("selectMethodError"));
 			setLoading(false);
 			return;
 		}
@@ -104,12 +108,9 @@ const PaymentForm: React.FC = () => {
 
 	return (
 		<div className="max-w-md mx-auto bg-white p-6 rounded-xl shadow-md border border-gray-100 ">
-			<h3 className="text-xl font-bold mb-2 text-center">
-				Apps dikirim ke email kamu
-			</h3>
+			<h3 className="text-xl font-bold mb-2 text-center">{t("title")}</h3>
 			<span className="inline-flex items-center italic h-auto mb-4 px-8 py-2 text-sm leading-4 font-semibold text-[#F14424] bg-red-200 rounded-full">
-				Jadi Pastiin email diisi dengan benar ya!, <br />
-				supaya appsnya terkirim!
+				{t("emailNotice")}
 			</span>
 			<hr className="mb-6 border-gray-200"></hr>
 			{error && (
@@ -120,7 +121,7 @@ const PaymentForm: React.FC = () => {
 			<form onSubmit={handleSubmit} className="space-y-4 text-left">
 				<div>
 					<label className="block text-sm font-medium text-gray-700 mb-1">
-						Nama Lengkap
+						{t("nameLabel")}
 					</label>
 					<input
 						type="text"
@@ -129,12 +130,12 @@ const PaymentForm: React.FC = () => {
 						value={formData.name}
 						onChange={handleChange}
 						className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-						placeholder="John Doe"
+						placeholder={t("namePlaceholder")}
 					/>
 				</div>
 				<div>
 					<label className="block text-sm font-medium text-gray-700 mb-1">
-						Email
+						{t("emailLabel")}
 					</label>
 					<input
 						type="email"
@@ -143,12 +144,12 @@ const PaymentForm: React.FC = () => {
 						value={formData.email}
 						onChange={handleChange}
 						className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-						placeholder="john@example.com"
+						placeholder={t("emailPlaceholder")}
 					/>
 				</div>
 				<div>
 					<label className="block text-sm font-medium text-gray-700 mb-1">
-						No. WhatsApp
+						{t("phoneLabel")}
 					</label>
 					<input
 						type="tel"
@@ -157,12 +158,12 @@ const PaymentForm: React.FC = () => {
 						value={formData.phone}
 						onChange={handleChange}
 						className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-						placeholder="08123456789"
+						placeholder={t("phonePlaceholder")}
 					/>
 				</div>
 				<div>
 					<label className="block text-sm font-medium text-gray-700 mb-1">
-						Nama Kota
+						{t("cityLabel")}
 					</label>
 					<input
 						type="text"
@@ -171,18 +172,18 @@ const PaymentForm: React.FC = () => {
 						value={formData.city}
 						onChange={handleChange}
 						className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-						placeholder="Jakarta, Bandung, Surabaya, dll"
+						placeholder={t("cityPlaceholder")}
 					/>
 				</div>
 
 				<div>
 					<label className="block text-sm font-medium text-gray-700 mb-2">
-						Metode Pembayaran
+						{t("paymentLabel")}
 					</label>
 					<div className="grid grid-cols-2 gap-2 h-auto overflow-y-auto">
 						{channels.length === 0 ? (
 							<p className="text-sm text-gray-400 col-span-2 text-center py-2">
-								Loading payment methods...
+								{t("loadingMethods")}
 							</p>
 						) : (
 							channels.map((channel) => (
@@ -217,7 +218,7 @@ const PaymentForm: React.FC = () => {
 					disabled={loading || channels.length === 0}
 					className="mt-4"
 				>
-					{loading ? "Memproses..." : "Bayar Sekarang"}
+					{loading ? t("loadingBtn") : t("submitBtn")}
 				</Button>
 
 				<div className="flex justify-center items-center gap-2 mt-4 text-xs text-gray-500">
@@ -236,7 +237,7 @@ const PaymentForm: React.FC = () => {
 							/>
 						</svg>
 					</span>
-					<span>Payment Aman via Tripay</span>
+					<span>{tPayment("secure")}</span>
 				</div>
 			</form>
 		</div>

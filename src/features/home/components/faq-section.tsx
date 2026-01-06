@@ -1,47 +1,43 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface FAQItem {
 	question: string;
 	answer: string;
 }
 
-const faqData: FAQItem[] = [
-	{
-		question: "Apa itu Editin Foto?",
-		answer:
-			"Editin Foto adalah tools berbasis AI yang membantu kamu editin foto secara profesional dengan mudah dan cepat. Mulai dari foto produk, portrait, hingga desain interior - semua bisa dilakukan dalam hitungan detik.",
-	},
-	{
-		question: "Apakah benar sekali bayar untuk selamanya?",
-		answer:
-			"Ya, benar! Dengan membeli paket Lifetime Access, kamu mendapatkan akses ke semua fitur yang ada saat ini DAN fitur-fitur baru yang akan kami rilis di masa depan. Tidak ada biaya bulanan atau tahunan.",
-	},
-	{
-		question: "Bagaimana cara menggunakan Editin Foto?",
-		answer:
-			"Sangat mudah! Setelah melakukan pembayaran, kamu akan mendapatkan akses ke dashboard. Tinggal upload foto, pilih fitur yang diinginkan, dan AI kami akan memproses fotomu dalam hitungan detik.",
-	},
-	{
-		question: "Bagaimana jika saya tidak puas dengan hasilnya?",
-		answer:
-			"AI kami terus belajar dan berkembang. Jika hasil tidak sesuai ekspektasi, kamu bisa mencoba ulang dengan prompt yang berbeda atau menghubungi tim support kami untuk bantuan.",
-	},
-	{
-		question: "Metode pembayaran apa saja yang tersedia?",
-		answer:
-			"Kami menyediakan berbagai metode pembayaran termasuk transfer bank (Virtual Account), e-wallet (OVO, DANA, ShopeePay), dan QRIS. Semua transaksi diproses melalui payment gateway yang aman.",
-	},
-	{
-		question: "Bagaimana cara menghubungi support?",
-		answer:
-			"Kamu bisa menghubungi tim support kami melalui email atau WhatsApp yang tersedia di halaman kontak. Kami siap membantu 24/7.",
-	},
-];
-
 const FAQSection: React.FC = () => {
+	const t = useTranslations("FAQ");
 	const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+	const faqData: FAQItem[] = [
+		{
+			question: t("q1"),
+			answer: t("a1"),
+		},
+		{
+			question: t("q2"),
+			answer: t("a2"),
+		},
+		{
+			question: t("q3"),
+			answer: t("a3"),
+		},
+		{
+			question: t("q4"),
+			answer: t("a4"),
+		},
+		{
+			question: t("q5"),
+			answer: t("a5"),
+		},
+		{
+			question: t("q6"),
+			answer: t("a6"),
+		},
+	];
 
 	const toggleFAQ = (index: number) => {
 		setOpenIndex(openIndex === index ? null : index);
@@ -54,14 +50,12 @@ const FAQSection: React.FC = () => {
 					{/* Header */}
 					<div className="text-center mb-12">
 						<span className="inline-flex items-center h-6 mb-4 px-3 text-xs uppercase font-semibold text-blue-600 bg-blue-100 rounded-full">
-							FAQ
+							{t("badge")}
 						</span>
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-							Pertanyaan Umum
+							{t("title")}
 						</h2>
-						<p className="text-gray-600">
-							Temukan jawaban untuk pertanyaan yang sering diajukan
-						</p>
+						<p className="text-gray-600">{t("subtitle")}</p>
 					</div>
 
 					{/* FAQ Items */}

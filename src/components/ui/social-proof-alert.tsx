@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 // Indonesian names for random selection
 const randomNames = [
@@ -56,10 +57,11 @@ const randomCities = [
 ];
 
 const SocialProofAlert: React.FC = () => {
+	const t = useTranslations("SocialProof");
 	const [isVisible, setIsVisible] = useState(false);
 	const [currentName, setCurrentName] = useState("");
 	const [currentCity, setCurrentCity] = useState("");
-	const [timeAgo, setTimeAgo] = useState("");
+	const [minutesAgo, setMinutesAgo] = useState(0);
 
 	const generateRandomNotification = () => {
 		const name = randomNames[Math.floor(Math.random() * randomNames.length)];
@@ -68,7 +70,7 @@ const SocialProofAlert: React.FC = () => {
 
 		setCurrentName(name);
 		setCurrentCity(city);
-		setTimeAgo(`${minutes} menit yang lalu`);
+		setMinutesAgo(minutes);
 	};
 
 	const showNotification = () => {
@@ -134,10 +136,17 @@ const SocialProofAlert: React.FC = () => {
 				{/* Content */}
 				<div className="flex-1 min-w-0">
 					<p className="text-sm text-gray-800 font-medium leading-snug">
-						<span className="font-bold text-gray-900">{currentName}</span> dari{" "}
-						<span className="text-blue-600">{currentCity}</span> baru saja
-						membeli dengan{" "}
-						<span className="text-green-600 font-semibold">harga diskon</span>
+						{t.rich("text", {
+							name: (chunks) => (
+								<span className="font-bold text-gray-900">{chunks}</span>
+							),
+							city: (chunks) => <span className="text-blue-600">{chunks}</span>,
+							discount: (chunks) => (
+								<span className="text-green-600 font-semibold">{chunks}</span>
+							),
+							personName: currentName,
+							cityName: currentCity,
+						})}
 					</p>
 					<p className="text-xs text-gray-400 mt-1 flex items-center gap-1">
 						<svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -147,7 +156,7 @@ const SocialProofAlert: React.FC = () => {
 								clipRule="evenodd"
 							/>
 						</svg>
-						{timeAgo}
+						{t("timeAgo", { minutes: minutesAgo })}
 					</p>
 				</div>
 
@@ -155,7 +164,7 @@ const SocialProofAlert: React.FC = () => {
 				<button
 					onClick={() => setIsVisible(false)}
 					className="shrink-0 w-6 h-6 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
-					aria-label="Tutup notifikasi"
+					aria-label={t("close")}
 				>
 					<svg
 						className="w-4 h-4"

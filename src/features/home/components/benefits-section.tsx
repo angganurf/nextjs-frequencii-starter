@@ -2,8 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const BenefitsSection: React.FC = () => {
+	const t = useTranslations("Benefits");
+
 	return (
 		<section className="py-16 bg-gray-50">
 			<div className="container px-4 mx-auto">
@@ -11,30 +14,24 @@ const BenefitsSection: React.FC = () => {
 					{/* Main Headline */}
 					<div className="text-center mb-12">
 						<span className="inline-flex items-center h-6 mb-4 px-2 text-xs uppercase font-medium text-yellowGreen-700 bg-blue-200 rounded-full">
-							Benefit
+							{t("badge")}
 						</span>
 						<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6 px-2">
-							Edit Foto Jadi Profesional dalam 10 Detik{" "}
-							<span className="text-blue-600">Tanpa Studio & Tanpa Ribet.</span>
+							{t("title")}
 						</h2>
-						<p className="text-xl text-gray-600">
-							Upload foto → pilih style → hasil langsung siap jual.
-						</p>
+						<p className="text-xl text-gray-600">{t("description")}</p>
 					</div>
 
 					{/* Highlight Box */}
 					<div className="bg-linear-to-r text-center from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8 mb-12 border border-blue-100">
 						<p className="text-lg text-gray-700 mb-4">
-							Bayangin… akses{" "}
+							{t("highlight.p1_start")}{" "}
 							<span className="font-semibold text-blue-600">
-								puluhan fitur canggih tanpa batas
+								{t("highlight.p1_bold")}
 							</span>
-							, tanpa langganan bulanan, tanpa biaya tersembunyi.
+							{t("highlight.p1_end")}
 						</p>
-						<p className="text-lg text-gray-700">
-							Sekali bayar, langsung bisa dipakai terus + dapet update fitur
-							selamanya
-						</p>
+						<p className="text-lg text-gray-700">{t("highlight.p2")}</p>
 					</div>
 
 					{/* Pain Points */}
@@ -47,11 +44,9 @@ const BenefitsSection: React.FC = () => {
 							<div>
 								<p className="text-gray-700 leading-relaxed">
 									<span className="font-semibold">
-										Pernah ngerasa capek harus keluar jutaan rupiah
+										{t("painPoints.p1_bold")}
 									</span>{" "}
-									cuma buat sekali foto studio? Entah itu foto wedding,
-									pre-wedding, atau foto bayi. Belum lagi ribet ngatur jadwal,
-									nunggu fotografer, dan hasil edit yang kadang lama banget.
+									{t("painPoints.p1_text")}
 								</p>
 							</div>
 						</div>
@@ -64,11 +59,9 @@ const BenefitsSection: React.FC = () => {
 							<div>
 								<p className="text-gray-700 leading-relaxed">
 									<span className="font-semibold">
-										Atau kamu seller yang lagi mentok?
+										{t("painPoints.p2_bold")}
 									</span>{" "}
-									Bingung shoot foto produk, edit banner promosi, atau ngerasa
-									"duh gue gaptek banget"? Akhirnya foto produk gitu-gitu aja,
-									audiens bosan, dan penjualan pun jalan di tempat.
+									{t("painPoints.p2_text")}
 								</p>
 							</div>
 						</div>
@@ -77,27 +70,31 @@ const BenefitsSection: React.FC = () => {
 					{/* Solution */}
 					<div className="bg-gray-900 rounded-2xl p-8 md:p-10 mb-12 text-center">
 						<p className="text-2xl md:text-3xl font-bold text-white mb-4">
-							Nah, kenalin <span className="text-blue-600">Editin Foto</span>{" "}
-							📸✨
+							{t("solution.intro_start")}{" "}
+							<span className="text-blue-600">
+								{t("solution.intro_highlight")}
+							</span>{" "}
+							{t("solution.intro_end")}
 						</p>
 						<p className="text-lg text-gray-300 mb-6">
-							Solusi simpel yang bikin HP kamu berubah jadi{" "}
+							{t("solution.desc_start")}{" "}
 							<span className="text-blue-400 font-semibold">
-								studio foto profesional
+								{t("solution.desc_highlight")}
 							</span>
-							.
+							{t("solution.desc_end")}
 						</p>
 
 						{/* Benefits */}
 						<div className="flex flex-wrap justify-center gap-4 mb-6">
+							{/* Assuming fixed 3 items as per JSON, but could map if needed. Keeping static for layout control */}
 							<div className="bg-white/10 px-4 py-2 rounded-full text-white text-sm">
-								✅ Tanpa skill editing ribet
+								{t("solution.benefits.0")}
 							</div>
 							<div className="bg-white/10 px-4 py-2 rounded-full text-white text-sm">
-								✅ Tanpa alat mahal
+								{t("solution.benefits.1")}
 							</div>
 							<div className="bg-white/10 px-4 py-2 rounded-full text-white text-sm">
-								✅ Upload foto, AI yang kerja
+								{t("solution.benefits.2")}
 							</div>
 						</div>
 					</div>
@@ -105,34 +102,33 @@ const BenefitsSection: React.FC = () => {
 					{/* Use Cases */}
 					<div className="mb-12">
 						<p className="text-lg text-gray-700 text-center leading-relaxed">
-							Mulai dari{" "}
+							{t("useCases.text_start")}{" "}
 							<span className="font-semibold text-pink-600">
-								foto newborn yang gemes
+								{t("useCases.text_pink")}
 							</span>
-							,{" "}
+							{t("useCases.text_comma1")}{" "}
 							<span className="font-semibold text-purple-600">
-								foto pernikahan yang elegan
+								{t("useCases.text_purple")}
 							</span>
-							, sampai{" "}
+							{t("useCases.text_comma2")}{" "}
 							<span className="font-semibold text-blue-600">
-								foto produk yang keliatan niat & jualan banget
+								{t("useCases.text_blue")}
 							</span>{" "}
-							— semuanya jadi otomatis dalam hitungan detik.
+							{t("useCases.text_end")}
 						</p>
 					</div>
 
 					{/* Bottom CTA */}
 					<div className="bg-linear-to-r from-yellowGreen-700 to-[#1765cc] rounded-2xl p-8 text-center">
 						<p className="text-xl md:text-2xl font-bold text-white mb-4">
-							Intinya? Editin Foto itu tools paling murah dan paling gampang
-							buat{" "}
+							{t("bottomCTA.title_start")}{" "}
 							<span className="text-yellow-300">
-								upgrade visual kamu sekarang juga
+								{t("bottomCTA.title_highlight")}
 							</span>
-							.
+							{t("bottomCTA.title_end")}
 						</p>
 						<p className="text-lg text-blue-100 mb-6">
-							Sekali bayar, manfaatnya panjang 💥
+							{t("bottomCTA.subtitle")}
 						</p>
 						<Link
 							href="#payment-section"
@@ -143,7 +139,7 @@ const BenefitsSection: React.FC = () => {
 							}}
 							className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-600 bg-white rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
 						>
-							Lihat Harga Spesial →
+							{t("bottomCTA.button")}
 						</Link>
 					</div>
 				</div>

@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const GuaranteeSection: React.FC = () => {
+	const t = useTranslations("Guarantee");
+
 	return (
 		<section className="py-12 bg-gray-900">
 			<div className="container px-4 mx-auto">
@@ -12,27 +15,23 @@ const GuaranteeSection: React.FC = () => {
 
 					{/* Guarantee Title */}
 					<h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-						Garansi Akses Selamanya
+						{t("title")}
 					</h3>
 
 					{/* Guarantee Description */}
-					<p className="text-lg text-gray-300 mb-8">
-						Sekali bayar, akun kamu aktif{" "}
-						<span className="text-blue-400 font-semibold">seumur hidup</span>{" "}
-						tanpa ada biaya tersembunyi di dalamnya.
-					</p>
+					<p className="text-lg text-gray-300 mb-8">{t("description")}</p>
 
 					{/* Divider */}
 					<div className="w-24 h-px bg-gray-700 mx-auto mb-6"></div>
 
-					{/* Terms Notice */}
+					{/* Terms notice */}
 					<p className="text-sm text-gray-500">
-						Dengan membeli berarti sudah membaca dan setuju dengan{" "}
+						{t("termsNotice")}{" "}
 						<Link
 							href="/terms-of-service"
 							className="text-blue-400 hover:text-blue-300 underline transition-colors"
 						>
-							ketentuan layanan
+							{t("termsLink")}
 						</Link>
 						.
 					</p>

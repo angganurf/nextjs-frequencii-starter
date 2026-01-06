@@ -1,0 +1,368 @@
+{
+	"Hero": {
+		"title": "Ai yang bisa Editin foto kamu jadi foto yang super kece.",
+		"description": "Tools edit foto yang punya banyak fitur, ga perlu mikirin limit. Sekali bayar, semua sepuasnya.",
+		"cta": "Coba Sekarang"
+	},
+	"Benefits": {
+		"badge": "Benefit",
+		"title": "Edit Foto Jadi Profesional dalam 10 Detik",
+		"subtitle": "Tanpa Studio & Tanpa Ribet.",
+		"description": "Upload foto → pilih style → hasil langsung siap jual.",
+		"highlight": {
+			"p1_start": "Bayangin… akses",
+			"p1_bold": "puluhan fitur canggih tanpa batas",
+			"p1_end": ", tanpa langganan bulanan, tanpa biaya tersembunyi.",
+			"p2": "Sekali bayar, langsung bisa dipakai terus + dapet update fitur selamanya"
+		},
+		"painPoints": {
+			"p1_bold": "Pernah ngerasa capek harus keluar jutaan rupiah",
+			"p1_text": "cuma buat sekali foto studio? Entah itu foto wedding, pre-wedding, atau foto bayi. Belum lagi ribet ngatur jadwal, nunggu fotografer, dan hasil edit yang kadang lama banget.",
+			"p2_bold": "Atau kamu seller yang lagi mentok?",
+			"p2_text": "Bingung shoot foto produk, edit banner promosi, atau ngerasa 'duh gue gaptek banget'? Akhirnya foto produk gitu-gitu aja, audiens bosan, dan penjualan pun jalan di tempat."
+		},
+		"solution": {
+			"intro_start": "Nah, kenalin",
+			"intro_highlight": "Editin Foto",
+			"intro_end": "📸✨",
+			"desc_start": "Solusi simpel yang bikin HP kamu berubah jadi",
+			"desc_highlight": "studio foto profesional",
+			"desc_end": ".",
+			"benefits": [
+				"✅ Tanpa skill editing ribet",
+				"✅ Tanpa alat mahal",
+				"✅ Upload foto, AI yang kerja"
+			]
+		},
+		"useCases": {
+			"text_start": "Mulai dari",
+			"text_pink": "foto newborn yang gemes",
+			"text_comma1": ",",
+			"text_purple": "foto pernikahan yang elegan",
+			"text_comma2": ", sampai",
+			"text_blue": "foto produk yang keliatan niat & jualan banget",
+			"text_end": "— semuanya jadi otomatis dalam hitungan detik."
+		},
+		"bottomCTA": {
+			"title_start": "Intinya? Editin Foto itu tools paling murah dan paling gampang buat",
+			"title_highlight": "upgrade visual kamu sekarang juga",
+			"title_end": ".",
+			"subtitle": "Sekali bayar, manfaatnya panjang 💥",
+			"button": "Lihat Harga Spesial →"
+		}
+	},
+	"Payment": {
+		"secure": "Payment Aman via Tripay"
+	},
+	"HowItWorks": {
+		"badge": "Fitur",
+		"feature1Title": "Fitur Gabungin Foto",
+		"feature1Desc": "Unggah 2-5 gambar, tulis instruksi, dan biarkan AI menggabungkannya menjadi sebuah karya baru yang unik.",
+		"feature2Title": "Photoshoot Produk",
+		"feature2Desc": "Upload foto produk Anda dan AI akan ngeditin berbagai skenario photoshoot profesional.",
+		"feature3Title": "Foto Model Ai",
+		"feature3Desc": "Jelaskan model yang kamu mau, atau biarin AI yang kreasiin ngebuatin model yang kece.",
+		"feature4Title": "Editin Foto",
+		"feature4Desc": "Upload foto, tandai area yang ingin di edit dan tulis instruksi untuk mengedit foto kamu pake AI.",
+		"feature5Title": "Perbaiki Foto",
+		"feature5Desc": "Perbaiki foto rusak, lawas, jadul menjadi lebih baru, clean, dan professional."
+	},
+	"Testimonials": {
+		"badge": "TESTIMONIALS",
+		"title": "Kata mereka yang pake",
+		"subtitle": "Editin Foto",
+		"loading": "Memuat testimoni...",
+		"items": {
+			"0": {
+				"id": 1,
+				"quote": "Beneran gak nyangka bisa sebagus ini. kaya foto yang diambil pake kamera DSLR. keren abis min.",
+				"name": "Hanifa",
+				"title": "Founder of AIME Inc."
+			},
+			"1": {
+				"id": 2,
+				"quote": "Mas, sumph ini apps keren banget. saya barusan nyoba fitur product, gila hasilnya ga expect sih keren abis.",
+				"name": "Hanna Stanton",
+				"title": "Founder of AIME Inc."
+			},
+			"2": {
+				"id": 3,
+				"quote": "Bang, Mantap banget Aplikasinya. saya pake produk + model, hasilnya cakep banget realistic banget, padahal cuman produk biasa.",
+				"name": "Cooper Levin",
+				"title": "Founder of AIME Inc."
+			},
+			"3": {
+				"id": 4,
+				"quote": "Asli, cepet banget generatenya dan rapih parah. gak perlu ribet ngedit manual. langsung jadi fotonya.",
+				"name": "Cooper Levin",
+				"title": "Founder of AIME Inc."
+			}
+		}
+	},
+	"Promo": {
+		"headline": "Kami ingin kamu berhenti membuang uang untuk hal yang bisa dilakukan otomatis oleh AI.",
+		"title": "LIFETIME ACCESS EDITIN PHOTO AI",
+		"subtitle": "(Akses Selamanya ke Semua Fitur Saat Ini & Fitur Mendatang)",
+		"normalPriceLabel": "Harga Normal:",
+		"promoLabel": "HARGA PROMO HARI INI:",
+		"description": "Hanya dengan sekali bayar (setara biaya 2x ngopi di cafe), kamu dapet studio foto pribadi selamanya.",
+		"cta": "Ambil Promo →",
+		"warningTitle": "PERHATIAN:",
+		"warningText": "Diskon spesial ini hanya berlaku sampai minggu ini. Setelah itu harga akan kembali normal menjadi Rp 350.000. Jangan sampai nyesel deh karena ngelewatin harga termurah ini.",
+		"normalPriceValue": "Rp 350.000",
+		"promoPriceValue": "Rp 95.000"
+	},
+	"Price": {
+		"logoSubtitle": "Tools Edit Foto All-in-One untuk kebutuhan edit foto profesional. Unlimited, anti ribet, dan super cepat.",
+		"comparisonLabel": "Tools lain harus langganan, sementara",
+		"editinTitle": "Tools",
+		"editinTitleHighlight": "Editin Foto",
+		"priceBadge": "95rb",
+		"unlimitedLabel": "Unlimited Access, Semua Sepuasnya.",
+		"cta": "Beli Sekarang",
+		"footer": "Harga segitu ga ada apa-apanya dibanding karya super kece. Fitur bakal terus bertambah, support 24/7, dan garansi lifetime."
+	},
+	"PaymentForm": {
+		"title": "Apps dikirim ke email kamu",
+		"emailNotice": "Jadi Pastiin email diisi dengan benar ya!, supaya appsnya terkirim!",
+		"nameLabel": "Nama Lengkap",
+		"emailLabel": "Email",
+		"phoneLabel": "No. WhatsApp",
+		"cityLabel": "Nama Kota",
+		"paymentLabel": "Metode Pembayaran",
+		"loadingBtn": "Memproses...",
+		"submitBtn": "Bayar Sekarang",
+		"loadingMethods": "Memuat metode pembayaran...",
+		"selectMethodError": "Silakan pilih metode pembayaran.",
+		"namePlaceholder": "John Doe",
+		"emailPlaceholder": "john@example.com",
+		"phonePlaceholder": "08123456789",
+		"cityPlaceholder": "Jakarta, Bandung, Surabaya, dll"
+	},
+	"Guarantee": {
+		"title": "Garansi Akses Selamanya",
+		"description": "Sekali bayar, akun kamu aktif seumur hidup tanpa ada biaya tersembunyi di dalamnya.",
+		"termsNotice": "Dengan membeli berarti sudah membaca dan setuju dengan",
+		"termsLink": "ketentuan layanan"
+	},
+	"FAQ": {
+		"badge": "FAQ",
+		"title": "Pertanyaan Umum",
+		"subtitle": "Temukan jawaban untuk pertanyaan yang sering diajukan",
+		"q1": "Apa itu Editin Foto?",
+		"a1": "Editin Foto adalah tools berbasis AI yang membantu kamu editin foto secara profesional dengan mudah dan cepat. Mulai dari foto produk, portrait, hingga desain interior - semua bisa dilakukan dalam hitungan detik.",
+		"q2": "Apakah benar sekali bayar untuk selamanya?",
+		"a2": "Ya, benar! Dengan membeli paket Lifetime Access, kamu mendapatkan akses ke semua fitur yang ada saat ini DAN fitur-fitur baru yang akan kami rilis di masa depan. Tidak ada biaya bulanan atau tahunan.",
+		"q3": "Bagaimana cara menggunakan Editin Foto?",
+		"a3": "Sangat mudah! Setelah melakukan pembayaran, kamu akan mendapatkan akses ke dashboard. Tinggal upload foto, pilih fitur yang diinginkan, dan AI kami akan memproses fotomu dalam hitungan detik.",
+		"q4": "Bagaimana jika saya tidak puas dengan hasilnya?",
+		"a4": "AI kami terus belajar dan berkembang. Jika hasil tidak sesuai ekspektasi, kamu bisa mencoba ulang dengan prompt yang berbeda atau menghubungi tim support kami untuk bantuan.",
+		"q5": "Metode pembayaran apa saja yang tersedia?",
+		"a5": "Kami menyediakan berbagai metode pembayaran termasuk transfer bank (Virtual Account), e-wallet (OVO, DANA, ShopeePay), dan QRIS. Semua transaksi diproses melalui payment gateway yang aman.",
+		"q6": "Bagaimana cara menghubungi support?",
+		"a6": "Kamu bisa menghubungi tim support kami melalui email atau WhatsApp yang tersedia di halaman kontak. Kami siap membantu 24/7."
+	},
+	"Comparison": {
+		"badge": "Perbandingan",
+		"title": "Yuk kita hitung-hitungan dikit 😄",
+		"subtitle": "Biar kelihatan hematnya berapa banyak",
+		"traditional": {
+			"badge": "Cara Lama ❌",
+			"title": "Biaya Konvensional",
+			"item1": "1x Foto Studio (Newborn/Wedding)",
+			"item2": "Jasa Edit Foto",
+			"totalLabel": "👉 Total yang harus kamu keluarin:",
+			"totalNote": "(itu pun cuma sekali pakai)",
+			"price1": "± Rp 3.000.000+",
+			"price2": "± Rp 500.000",
+			"totalPrice": "± Rp 3.500.000"
+		},
+		"editin": {
+			"badge": "⚡ Editin Foto ✅",
+			"title": "Foto Studio AI",
+			"specialPriceLabel": "Harga Spesial",
+			"unlimitedBadge": "🟢 SEKALI BAYAR, SEMUA SEPUASNYA",
+			"price": "Rp 95.000",
+			"f1": "✅ Dipakai berkali-kali, kapan aja",
+			"f2": "✅ Tanpa batas pemakaian",
+			"f3": "✅ Nggak ada langganan bulanan",
+			"f4": "✅ Nggak ada biaya tambahan"
+		},
+		"result": {
+			"label": "📉 Hasilnya?",
+			"main": "Kamu hemat lebih dari 90%",
+			"sub": "Tapi dapet fungsi setara foto studio mahal 🤯"
+		},
+		"bottom": {
+			"title": "Intinya simpel:",
+			"desc": "Sekali keluar duit kecil, manfaatnya jalan terus.",
+			"highlight": "Worth it banget buat jangka panjang 🚀",
+			"cta": "Coba Sekarang →"
+		}
+	},
+	"AllFeatures": {
+		"badge": "Explorer",
+		"title": "Semua Fitur",
+		"subtitle": "Jelajahi berbagai fitur lengkap yang kami sediakan untuk kebutuhan kreatif Anda.",
+		"bottom": "Tools Editin Foto, sekali bayar, fitur update, unlimited tanpa kredit limit. Support & Garansi Lifetime.",
+		"cat1": {
+			"title": "Edit & Gabung",
+			"desc": "Manipulasi foto tingkat lanjut dengan sekali klik."
+		},
+		"cat2": {
+			"title": "Produk & Promosi",
+			"desc": "Tingkatkan penjualan dengan visual produk profesional."
+		},
+		"cat3": {
+			"title": "Gaya Hidup",
+			"desc": "Abadikan momen spesial dalam hidup Anda."
+		},
+		"cat4": {
+			"title": "Desain & Ilustrasi",
+			"desc": "Ubah ide menjadi karya seni visual yang memukau."
+		},
+		"features": {
+			"Gabungin Foto": "Gabungin Foto",
+			"Foto Miniatur": "Foto Miniatur",
+			"Perluas Foto (AI Expand)": "Perluas Foto (AI Expand)",
+			"Edit Foto": "Edit Foto",
+			"Perbaiki Foto (Enhance)": "Perbaiki Foto (Enhance)",
+			"Face Swap": "Face Swap",
+			"Foto Artis": "Foto Artis",
+			"Hapus BG": "Hapus BG",
+			"Foto Produk": "Foto Produk",
+			"Foto Produk & Model": "Foto Produk & Model",
+			"Foto Fashion": "Foto Fashion",
+			"Buat Mockup": "Buat Mockup",
+			"Buat Banner": "Buat Banner",
+			"Buat Carousel": "Buat Carousel",
+			"POV Tangan": "POV Tangan",
+			"Pre-Wedding": "Pre-Wedding",
+			"Foto Wedding": "Foto Wedding",
+			"Foto Maternity": "Foto Maternity",
+			"Foto Model": "Foto Model",
+			"Ubah Pose & Angel": "Ubah Pose & Angel",
+			"Fotografer Bayi & Kids": "Fotografer Bayi & Kids",
+			"Umrah / Haji": "Umrah / Haji",
+			"Pas Foto Warna": "Pas Foto Warna",
+			"Virtual Try On": "Virtual Try On",
+			"Retouch": "Retouch",
+			"Desain Interior": "Desain Interior",
+			"Desain Eksterior": "Desain Eksterior",
+			"Sketsa Gambar": "Sketsa Gambar",
+			"Art & Karikatur": "Art & Karikatur",
+			"Auto Rapi": "Auto Rapi"
+		}
+	},
+	"Metadata": {
+		"title": "Editin Foto - Tools Editin Foto Ai Professional.",
+		"description": "Editin Foto, Tools Edit Foto All-in-One untuk kebutuhan profesional. Unlimited, anti ribet, dan super cepat. Sekali bayar untuk selamanya.",
+		"keywords": "edit foto ai, editin foto, aplikasi edit foto, hapus background, perjelas foto, foto produk, foto model ai"
+	},
+	"Navigation": {
+		"home": "Beranda",
+		"privacyPolicy": "Kebijakan Privasi",
+		"termsOfService": "Ketentuan Layanan",
+		"contact": "Hubungi Kami",
+		"login": "Masuk",
+		"getStarted": "Mulai Sekarang"
+	},
+	"Footer": {
+		"madeBy": "Dibuat oleh",
+		"rightsReserved": "Hak cipta dilindungi undang-undang.",
+		"privacyPolicy": "Kebijakan Privasi",
+		"termsOfService": "Ketentuan Layanan",
+		"contact": "Kontak"
+	},
+	"Contact": {
+		"title": "Hubungi Kami",
+		"badge": "Butuh Bantuan?",
+		"subtitle": "Tim support kami siap membantu Anda 24/7. Jangan ragu untuk menghubungi kami jika ada kendala.",
+		"whatsappTitle": "WhatsApp Support",
+		"whatsappDesc": "Respon cepat untuk kendala teknis dan pertanyaan umum.",
+		"whatsappBtn": "Chat via WhatsApp",
+		"addressTitle": "Alamat Kantor",
+		"addressDesc": "Kunjungi studio kami jika Anda berada di area sekitar.",
+		"addressLabel": "Editin Ai Studio",
+		"addressCity": "Sukabumi, Indonesia"
+	},
+	"PrivacyPolicy": {
+		"badge": "Dokumen Legal",
+		"title": "Kebijakan Privasi",
+		"lastUpdated": "Terakhir diperbarui:",
+		"intro": "Selamat datang di Editin Foto. Kami menghargai privasi Anda dan berkomitmen untuk melindungi informasi pribadi Anda. Dokumen ini menjelaskan bagaimana kami mengelola data Anda.",
+		"section1": {
+			"title": "1. Informasi yang Kami Kumpulkan",
+			"content": "Kami mengumpulkan informasi yang diperlukan untuk memproses pesanan dan meningkatkan layanan kami, termasuk:",
+			"items": [
+				"Identitas Diri: Nama lengkap untuk keperluan faktur dan identifikasi pesanan.",
+				"Kontak: Alamat email dan nomor WhatsApp untuk pengiriman produk dan komunikasi.",
+				"Informasi Pembayaran: Data transaksi yang diproses secara aman oleh mitra pembayaran kami (Tripay)."
+			]
+		},
+		"section2": {
+			"title": "2. Penggunaan Informasi",
+			"content": "Data Anda digunakan semata-mata untuk tujuan operasional layanan kami:",
+			"items": [
+				"Memproses dan memverifikasi pembayaran Anda.",
+				"Mengirimkan tautan unduhan produk digital secara otomatis.",
+				"Memberikan dukungan teknis jika Anda mengalami kendala.",
+				"Menginformasikan pembaruan produk atau penawaran khusus (opsional)."
+			]
+		},
+		"section3": {
+			"title": "3. Perlindungan & Pihak Ketiga",
+			"content": "Kami menerapkan standar keamanan industri untuk melindungi data Anda. Kami tidak menjual data Anda ke pihak manapun. Pembayaran diproses melalui gateway terenkripsi (Tripay), sehingga kami tidak menyimpan detail kartu kredit atau kredensial perbankan Anda secara langsung."
+		},
+		"contactBox": {
+			"title": "Punya pertanyaan tentang privasi?",
+			"text": "Hubungi tim kami di",
+			"linkText": "Halaman Kontak",
+			"suffix": "atau WhatsApp di 085770044691."
+		}
+	},
+	"TermsOfService": {
+		"badge": "Dokumen Legal",
+		"title": "Ketentuan Layanan",
+		"lastUpdated": "Terakhir diperbarui:",
+		"intro": "Dengan mengakses dan membeli produk dari Editin Foto, Anda menyetujui syarat dan ketentuan berikut ini. Mohon dibaca dengan seksama.",
+		"section1": {
+			"title": "1. Lisensi Penggunaan",
+			"content": "Produk \"Editin Foto\" yang Anda beli memberikan Anda lisensi Lifetime (Seumur Hidup) untuk penggunaan pribadi maupun komersial terbatas pada proyek Anda sendiri atau klien Anda.",
+			"warningTitle": "Dilarang Keras:",
+			"warningText": "Menjual kembali (resell), mendistribusikan ulang, atau membagikan file produk asli kepada orang lain tanpa izin tertulis dari Editin Foto. Pelanggaran hak cipta akan diproses sesuai hukum yang berlaku."
+		},
+		"section2": {
+			"title": "2. Pembayaran & Pengiriman",
+			"items": [
+				"Akses produk akan diberikan secara otomatis ke email Anda setelah pembayaran terkonfirmasi LUNAS oleh sistem.",
+				"Pastikan alamat email yang Anda masukkan valid. Kami tidak bertanggung jawab atas kesalahan penulisan email oleh pengguna."
+			]
+		},
+		"section3": {
+			"title": "3. Pengembalian Dana (Refund)",
+			"content": "Karena sifat produk kami yang merupakan Produk Digital yang dapat diunduh langsung, kami TIDAK melayani permintaan pengembalian dana (refund) dengan alasan apapun setelah produk berhasil dikirim atau diunduh. Mohon pastikan fitur produk sesuai kebutuhan Anda sebelum membeli."
+		},
+		"footer": "Editin Ai Studio berhak mengubah ketentuan ini sewaktu-waktu tanpa pemberitahuan sebelumnya."
+	},
+	"About": {
+		"pageTitle": "Kunjungi www.editifoto.site untuk menjelajahi fitur kami",
+		"ctaBadge": "Menjadi Pengembang Frontend",
+		"ctaTitle": "Ingin belajar cara membuat template seperti ini?",
+		"ctaButton": "Kunjungi www.pixelrocket.store",
+		"placeholderText": "Terima kasih atas minat Anda pada template ini! Anda telah mengunduh template awal yang hanya mencakup beranda. Anda dapat mengunduh versi lengkap template ini secara gratis dengan membuat akun di situs web saya dan bergabung dengan buletin saya.",
+		"placeholderLink": "Klik di sini untuk mengunjungi melihat template ini di situs web saya."
+	},
+	"Common": {
+		"visitWebsite": "Kunjungi Website"
+	},
+	"Announcement": {
+		"text": "Waspada penipuan! Pastikan membeli app resmi Editin Foto hanya di",
+		"linkText": "editinfoto.site"
+	},
+	"SocialProof": {
+		"text": "<name>{personName}</name> dari <city>{cityName}</city> baru saja membeli dengan <discount>harga diskon</discount>",
+		"timeAgo": "{minutes} menit yang lalu",
+		"close": "Tutup notifikasi"
+	}
+}

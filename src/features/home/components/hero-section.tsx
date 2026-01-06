@@ -3,11 +3,15 @@
 import Image from "next/image";
 import Button from "@/components/ui/button";
 
+import { useTranslations } from "next-intl";
+
 /**
  * Hero section component for the homepage
  * Features main heading, description, and call-to-action button
  */
 const HeroSection: React.FC = () => {
+	const t = useTranslations("Hero");
+
 	return (
 		<section className="container px-4 mx-auto" role="banner">
 			<div className="relative py-16 pb-40 md:pb-72 px-2 xs:px-8 rounded-3xl overflow-hidden">
@@ -25,11 +29,10 @@ const HeroSection: React.FC = () => {
 				<div className="relative max-w-lg lg:max-w-3xl mb-14 mx-auto text-center">
 					<div className="max-w-lg md:max-w-2xl px-4 mx-auto">
 						<h1 className="font-heading tracking-tight text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-							Ai yang bisa Editin foto kamu jadi foto yang super kece.
+							{t("title")}
 						</h1>
 						<p className="max-w-lg mx-auto text-lg text-gray-700 mb-10">
-							Tools edit foto yang punya banyak fitur, ga perlu mikirin limit.
-							Sekali bayar, semua sepuasnya.
+							{t("description")}
 						</p>
 
 						{/* CTA Button */}
@@ -47,7 +50,7 @@ const HeroSection: React.FC = () => {
 							}}
 							aria-label="Get started with Editin Foto"
 						>
-							Coba Sekarang
+							{t("cta")}
 						</Button>
 					</div>
 				</div>

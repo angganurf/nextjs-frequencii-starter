@@ -1,11 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Route } from "next";
+import { useTranslations } from "next-intl";
 
 /**
  * Footer component with navigation links and social media icons
  */
 function Footer() {
+	const t = useTranslations("Footer");
+	const tNav = useTranslations("Navigation");
+
 	// Route mapping for Next.js
 	const getRouteByName = (name: string): Route => {
 		const routes: Record<string, Route> = {
@@ -23,168 +27,7 @@ function Footer() {
 					<div className="container px-4 mx-auto">
 						{/* <div className="max-w-5xl mx-auto">
 							<div className="flex flex-wrap -mx-4 -mb-8">
-								<div className="w-full xs:w-1/2 md:w-1/4 px-4 mb-8">
-									<h5 className="text-xl font-semibold mb-6">Product</h5>
-									<ul>
-										<li className="mb-6">
-											<a
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
-											>
-												Features
-											</a>
-										</li>
-										<li className="mb-6">
-											<a
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
-											>
-												Solutions
-											</a>
-										</li>
-										<li className="mb-6">
-											<a
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
-											>
-												Pricing
-											</a>
-										</li>
-										<li>
-											<a
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
-											>
-												Tutorials
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div className="w-full xs:w-1/2 md:w-1/4 px-4 mb-8">
-									<h5 className="text-xl font-semibold mb-6">Company</h5>
-									<ul>
-										<li className="mb-6">
-											<Link
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href={getRouteByName("about")}
-											>
-												About
-											</Link>
-										</li>
-										<li className="mb-6">
-											<a
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
-											>
-												Our Mission
-											</a>
-										</li>
-										<li className="flex items-center mb-6">
-											<a
-												className="inline-block mr-2 text-lg text-gray-500 hover:text-gray-900"
-												href="#"
-											>
-												<span>Careers</span>
-											</a>
-											<span className="inline-flex h-6 px-2 items-center text-white bg-teal-600 rounded-full">
-												<svg
-													width="8"
-													height="8"
-													viewBox="0 0 8 8"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<circle cx="4" cy="4" r="3" fill="white"></circle>
-												</svg>
-												<span className="ml-1 text-xs text-gray-50">
-													Hiring
-												</span>
-											</span>
-										</li>
-										<li>
-											<Link
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href={getRouteByName("contact")}
-											>
-												Contact
-											</Link>
-										</li>
-									</ul>
-								</div>
-								<div className="w-full xs:w-1/2 md:w-1/4 px-4 mb-8">
-									<h5 className="text-xl font-semibold mb-6">Resources</h5>
-									<ul>
-										<li className="mb-6">
-											<a
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
-											>
-												Press
-											</a>
-										</li>
-										<li className="mb-6">
-											<Link
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href={getRouteByName("blog")}
-											>
-												Blog
-											</Link>
-										</li>
-										<li className="mb-6">
-											<a
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
-											>
-												Help Center
-											</a>
-										</li>
-										<li>
-											<a
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
-											>
-												Support
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div className="w-full xs:w-1/2 md:w-1/4 px-4 mb-8">
-									<h5 className="text-xl font-semibold mb-6">Legal</h5>
-									<ul>
-										<li className="mb-6">
-											<Link
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href={"/terms-of-service" as any}
-											>
-												Terms of Use
-											</Link>
-										</li>
-										<li className="mb-6">
-											<Link
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href={"/privacy-policy" as any}
-											>
-												Privacy Policy
-											</Link>
-										</li>
-										<li className="mb-6">
-											<a
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href="#"
-											>
-												Legal Notice
-											</a>
-										</li>
-										<li>
-											<Link
-												className="inline-block text-lg text-gray-500 hover:text-gray-900"
-												href={"/contact" as any}
-											>
-												Contact Us
-											</Link>
-										</li>
-									</ul>
-								</div>
+                                ... (This section was commented out in original file, keeping it commented out or removing it. It's largely boilerplate. I'll just remove it for cleaner code since it was already commented out.)
 							</div>
 						</div> */}
 						<div className="mt-32 pt-12 border-t border-gray-200">
@@ -192,16 +35,16 @@ function Footer() {
 								<div className="w-full px-4 flex justify-center mb-6 mb-0">
 									<Image
 										src="/images/editin-logo.png"
-										alt="Frequencii logo"
+										alt="Editin Logo"
 										width={150}
 										height={40}
 									/>
 								</div>
 								<div className="w-full px-4 text-center mb-6">
 									<p className="text-gray-500">
-										Made by{" "}
+										{t("madeBy")}{" "}
 										<a href="https://www.editifoto.site">Editin Ai Studio</a>.
-										All rights reserved.
+										{t("rightsReserved")}
 									</p>
 								</div>
 								<div className="w-full px-4">
@@ -210,19 +53,19 @@ function Footer() {
 											href={getRouteByName("privacyPolicy")}
 											className="text-gray-500 hover:text-gray-900 text-sm font-medium transition duration-200"
 										>
-											Privacy Policy
+											{t("privacyPolicy")}
 										</Link>
 										<Link
 											href={getRouteByName("termsOfService")}
 											className="text-gray-500 hover:text-gray-900 text-sm font-medium transition duration-200"
 										>
-											Terms of Service
+											{t("termsOfService")}
 										</Link>
 										<Link
 											href={getRouteByName("contact")}
 											className="text-gray-500 hover:text-gray-900 text-sm font-medium transition duration-200"
 										>
-											Contact
+											{t("contact")}
 										</Link>
 									</div>
 								</div>

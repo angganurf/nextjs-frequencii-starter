@@ -1,4 +1,7 @@
+import { useTranslations } from "next-intl";
+
 const HowItWorksSection: React.FC = () => {
+	const t = useTranslations("HowItWorks");
 	return (
 		<>
 			<section className="py-12 text-center">
@@ -6,15 +9,12 @@ const HowItWorksSection: React.FC = () => {
 					<div className="max-w-full mx-auto">
 						<div className="max-w-full mb-24">
 							<span className="inline-flex items-center h-6 mb-4 px-2 text-xs uppercase font-medium text-yellowGreen-700 bg-blue-200 rounded-full">
-								Fitur
+								{t("badge")}
 							</span>
 							<h1 className="font-heading text-centertracking-tight text-4xl sm:text-5xl font-bold mb-4">
-								Fitur Gabungin Foto
+								{t("feature1Title")}
 							</h1>
-							<p className="text-lg text-gray-500">
-								Unggah 2-5 gambar, tulis instruksi, dan biarkan AI
-								menggabungkannya menjadi sebuah karya baru yang unik.
-							</p>
+							<p className="text-lg text-gray-500">{t("feature1Desc")}</p>
 						</div>
 						<div>
 							<img
@@ -40,15 +40,12 @@ const HowItWorksSection: React.FC = () => {
 					<div className="max-w-full mx-auto mt-16">
 						<div className="max-w-full mb-24">
 							<span className="inline-flex items-center h-6 mb-4 px-2 text-xs uppercase font-medium text-yellowGreen-700 bg-blue-200 rounded-full">
-								Fitur
+								{t("badge")}
 							</span>
 							<h1 className="font-heading text-centertracking-tight text-4xl sm:text-5xl font-bold mb-4">
-								Photoshoot Produk
+								{t("feature2Title")}
 							</h1>
-							<p className="text-lg text-gray-500">
-								Upload foto produk Anda dan AI akan ngeditin berbagai skenario
-								photoshoot profesional.
-							</p>
+							<p className="text-lg text-gray-500">{t("feature2Desc")}</p>
 						</div>
 						<div>
 							<img
@@ -74,15 +71,12 @@ const HowItWorksSection: React.FC = () => {
 					<div className="max-w-full mx-auto mt-16">
 						<div className="max-w-full mb-24">
 							<span className="inline-flex items-center h-6 mb-4 px-2 text-xs uppercase font-medium text-yellowGreen-700 bg-blue-200 rounded-full">
-								Fitur
+								{t("badge")}
 							</span>
 							<h1 className="font-heading text-centertracking-tight text-4xl sm:text-5xl font-bold mb-4">
-								Foto Model Ai
+								{t("feature3Title")}
 							</h1>
-							<p className="text-lg text-gray-500">
-								Jelaskan model yang kamu mau, atau biarin AI yang kreasiin
-								ngebuatin model yang kece.
-							</p>
+							<p className="text-lg text-gray-500">{t("feature3Desc")}</p>
 						</div>
 						<div>
 							<img
@@ -108,15 +102,12 @@ const HowItWorksSection: React.FC = () => {
 					<div className="max-w-full mx-auto mt-16">
 						<div className="max-w-full mb-24">
 							<span className="inline-flex items-center h-6 mb-4 px-2 text-xs uppercase font-medium text-yellowGreen-700 bg-blue-200 rounded-full">
-								Fitur
+								{t("badge")}
 							</span>
 							<h1 className="font-heading text-centertracking-tight text-4xl sm:text-5xl font-bold mb-4">
-								Editin Foto
+								{t("feature4Title")}
 							</h1>
-							<p className="text-lg text-gray-500">
-								Upload foto, tandai area yang ingin di edit dan tulis instruksi
-								untuk mengedit foto kamu pake AI.
-							</p>
+							<p className="text-lg text-gray-500">{t("feature4Desc")}</p>
 						</div>
 						<div>
 							<img
@@ -142,15 +133,12 @@ const HowItWorksSection: React.FC = () => {
 					<div className="max-w-full mx-auto mt-16">
 						<div className="max-w-full mb-24">
 							<span className="inline-flex items-center h-6 mb-4 px-2 text-xs uppercase font-medium text-yellowGreen-700 bg-blue-200 rounded-full">
-								Fitur
+								{t("badge")}
 							</span>
 							<h1 className="font-heading text-centertracking-tight text-4xl sm:text-5xl font-bold mb-4">
-								Perbaiki Foto
+								{t("feature5Title")}
 							</h1>
-							<p className="text-lg text-gray-500">
-								Perbaiki foto rusak, lawas, jadul menjadi lebih baru, clean, dan
-								professional.
-							</p>
+							<p className="text-lg text-gray-500">{t("feature5Desc")}</p>
 						</div>
 						<div>
 							<img

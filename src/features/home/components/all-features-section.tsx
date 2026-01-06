@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslations } from "next-intl";
 
 interface FeatureCategory {
 	icon: React.ReactNode;
@@ -8,142 +9,141 @@ interface FeatureCategory {
 	features: string[];
 }
 
-const categories: FeatureCategory[] = [
-	{
-		icon: (
-			<svg
-				className="w-6 h-6"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
-				<path
-					strokeLinecap="round"
-					strokeLinejoin="round"
-					strokeWidth={2}
-					d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
-				/>
-			</svg>
-		),
-		iconBg: "bg-indigo-100 text-indigo-600",
-		title: "Edit & Gabung",
-		description: "Manipulasi foto tingkat lanjut dengan sekali klik.",
-		features: [
-			"Gabungin Foto",
-			"Foto Miniatur",
-			"Perluas Foto (AI Expand)",
-			"Edit Foto",
-			"Perbaiki Foto (Enhance)",
-			"Face Swap",
-			"Foto Artis",
-			"Hapus BG",
-		],
-	},
-	{
-		icon: (
-			<svg
-				className="w-6 h-6"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
-				<path
-					strokeLinecap="round"
-					strokeLinejoin="round"
-					strokeWidth={2}
-					d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-				/>
-			</svg>
-		),
-		iconBg: "bg-blue-100 text-blue-600",
-		title: "Produk & Promosi",
-		description: "Tingkatkan penjualan dengan visual produk profesional.",
-		features: [
-			"Foto Produk",
-			"Foto Produk & Model",
-			"Foto Fashion",
-			"Buat Mockup",
-			"Buat Banner",
-			"Buat Carousel",
-			"POV Tangan",
-		],
-	},
-	{
-		icon: (
-			<svg
-				className="w-6 h-6"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
-				<path
-					strokeLinecap="round"
-					strokeLinejoin="round"
-					strokeWidth={2}
-					d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-				/>
-			</svg>
-		),
-		iconBg: "bg-orange-100 text-orange-500",
-		title: "Gaya Hidup",
-		description: "Abadikan momen spesial dalam hidup Anda.",
-		features: [
-			"Pre-Wedding",
-			"Foto Wedding",
-			"Foto Maternity",
-			"Foto Model",
-			"Ubah Pose & Angel",
-			"Fotografer Bayi & Kids",
-			"Umrah / Haji",
-			"Pas Foto Warna",
-			"Virtual Try On",
-			"Retouch",
-		],
-	},
-	{
-		icon: (
-			<svg
-				className="w-6 h-6"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
-				<path
-					strokeLinecap="round"
-					strokeLinejoin="round"
-					strokeWidth={2}
-					d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-				/>
-			</svg>
-		),
-		iconBg: "bg-pink-100 text-pink-500",
-		title: "Desain & Ilustrasi",
-		description: "Ubah ide menjadi karya seni visual yang memukau.",
-		features: [
-			"Desain Interior",
-			"Desain Eksterior",
-			"Sketsa Gambar",
-			"Art & Karikatur",
-			"Auto Rapi",
-		],
-	},
-];
-
 const AllFeaturesSection: React.FC = () => {
+	const t = useTranslations("AllFeatures");
+
+	const categories: FeatureCategory[] = [
+		{
+			icon: (
+				<svg
+					className="w-6 h-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						strokeWidth={2}
+						d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
+					/>
+				</svg>
+			),
+			iconBg: "bg-indigo-100 text-indigo-600",
+			title: t("cat1.title"),
+			description: t("cat1.desc"),
+			features: [
+				t("features.Gabungin Foto"),
+				t("features.Foto Miniatur"),
+				t("features.Perluas Foto (AI Expand)"),
+				t("features.Edit Foto"),
+				t("features.Perbaiki Foto (Enhance)"),
+				t("features.Face Swap"),
+				t("features.Foto Artis"),
+				t("features.Hapus BG"),
+			],
+		},
+		{
+			icon: (
+				<svg
+					className="w-6 h-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						strokeWidth={2}
+						d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+					/>
+				</svg>
+			),
+			iconBg: "bg-blue-100 text-blue-600",
+			title: t("cat2.title"),
+			description: t("cat2.desc"),
+			features: [
+				t("features.Foto Produk"),
+				t("features.Foto Produk & Model"),
+				t("features.Foto Fashion"),
+				t("features.Buat Mockup"),
+				t("features.Buat Banner"),
+				t("features.Buat Carousel"),
+				t("features.POV Tangan"),
+			],
+		},
+		{
+			icon: (
+				<svg
+					className="w-6 h-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						strokeWidth={2}
+						d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+					/>
+				</svg>
+			),
+			iconBg: "bg-orange-100 text-orange-500",
+			title: t("cat3.title"),
+			description: t("cat3.desc"),
+			features: [
+				t("features.Pre-Wedding"),
+				t("features.Foto Wedding"),
+				t("features.Foto Maternity"),
+				t("features.Foto Model"),
+				t("features.Ubah Pose & Angel"),
+				t("features.Fotografer Bayi & Kids"),
+				t("features.Umrah / Haji"),
+				t("features.Pas Foto Warna"),
+				t("features.Virtual Try On"),
+				t("features.Retouch"),
+			],
+		},
+		{
+			icon: (
+				<svg
+					className="w-6 h-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						strokeWidth={2}
+						d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+					/>
+				</svg>
+			),
+			iconBg: "bg-pink-100 text-pink-500",
+			title: t("cat4.title"),
+			description: t("cat4.desc"),
+			features: [
+				t("features.Desain Interior"),
+				t("features.Desain Eksterior"),
+				t("features.Sketsa Gambar"),
+				t("features.Art & Karikatur"),
+				t("features.Auto Rapi"),
+			],
+		},
+	];
+
 	return (
 		<section className="py-12 md:py-24 bg-gray-50">
 			<div className="container px-4 mx-auto">
 				<div className="max-w-4xl mx-auto mb-16 text-center">
 					<span className="inline-flex items-center h-6 mb-4 px-2 text-xs uppercase font-medium text-yellowGreen-700 bg-blue-200 rounded-full">
-						Explorer
+						{t("badge")}
 					</span>
 					<h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
-						Semua Fitur
+						{t("title")}
 					</h2>
-					<p className="text-lg text-gray-500">
-						Jelajahi berbagai fitur lengkap yang kami sediakan untuk kebutuhan
-						kreatif Anda.
-					</p>
+					<p className="text-lg text-gray-500">{t("subtitle")}</p>
 				</div>
 
 				{/* Category Cards Grid */}
@@ -198,8 +198,7 @@ const AllFeaturesSection: React.FC = () => {
 				{/* Bottom Text */}
 				<div className="mt-16 text-center bg-linear-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
 					<p className="text-xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
-						Tools Editin Foto, sekali bayar, fitur update, unlimited tanpa
-						kredit limit. Support & Garansi Lifetime.
+						{t("bottom")}
 					</p>
 				</div>
 			</div>

@@ -1,13 +1,18 @@
+"use client";
+import React from "react";
+import { useTranslations } from "next-intl";
+
 /**
  * Announcement banner component
  */
 const AnnouncementBanner: React.FC = () => {
+	const t = useTranslations("Announcement");
 	return (
 		<div>
 			<p className="mb-2 py-4 text-center bg-[#1a73e8] text-white">
-				Waspada penipuan! Pastikan membeli app resmi Editin Foto hanya di{" "}
+				{t("text")}{" "}
 				<a href="https://editinfoto.site" className="underline">
-					editinfoto.site
+					{t("linkText")}
 				</a>
 			</p>
 		</div>
