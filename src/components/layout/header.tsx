@@ -35,7 +35,7 @@ const Header = memo(() => {
 						{/* Logo - Centered */}
 						<Link
 							className="inline-block relative z-0"
-							href="/"
+							href={"/" as any}
 							aria-label="Frequencii - Home"
 						>
 							<Image
@@ -89,7 +89,7 @@ const Header = memo(() => {
 						{/* Mobile view usually stacks, but user asked for just a menu on top right. 
                             Let's make it a standard dropdown list. */}
 						<Link
-							href="/"
+							href={"/" as any}
 							className="text-gray-600 hover:text-blue-600 font-medium py-2 px-4 block w-full text-center"
 							onClick={() => setIsMenuOpen(false)}
 						>
