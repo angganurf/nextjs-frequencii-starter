@@ -69,7 +69,7 @@ export default async function PaymentSuccessPage({ searchParams }: PageProps) {
 
 							<div className="flex flex-col sm:flex-row gap-4 justify-center">
 								<Link
-									href="/"
+									href={"/" as any}
 									className="inline-block px-8 py-3 text-sm font-semibold text-white transition duration-200 bg-blue-600 rounded-full hover:bg-blue-700 shadow-lg shadow-blue-600/30"
 								>
 									Kembali ke Beranda
@@ -162,7 +162,7 @@ export default async function PaymentSuccessPage({ searchParams }: PageProps) {
 
 						<div className="flex flex-col sm:flex-row gap-4 justify-center">
 							<Link
-								href="/"
+								href={"/" as any}
 								className="inline-block px-8 py-3 text-sm font-semibold text-white transition duration-200 bg-blue-600 rounded-full hover:bg-blue-700 shadow-lg shadow-blue-600/30"
 							>
 								Kembali ke Beranda
