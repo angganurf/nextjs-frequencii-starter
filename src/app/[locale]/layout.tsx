@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import { Figtree } from "next/font/google"; // Import font
 import "../globals.css";
 import SocialProofAlert from "@/components/ui/social-proof-alert";
 import FacebookPixel from "@/components/facebook-pixel";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
+
+const figtree = Figtree({
+	subsets: ["latin"],
+	variable: "--font-figtree",
+	display: "swap",
+});
 
 export async function generateMetadata({
 	params,
@@ -48,7 +55,7 @@ export default async function RootLayout({
 	return (
 		<html lang={locale}>
 			<body
-				className="font-body bg-body text-body antialiased"
+				className={`${figtree.variable} font-body bg-body text-body antialiased`}
 				suppressHydrationWarning
 			>
 				<NextIntlClientProvider messages={messages}>

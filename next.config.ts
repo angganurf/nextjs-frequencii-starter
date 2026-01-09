@@ -16,6 +16,9 @@ const nextConfig: NextConfig = {
 		],
 		qualities: [25, 50, 75, 90, 95, 100],
 	},
+	experimental: {
+		optimizeCss: true,
+	},
 	typedRoutes: true,
 	reactStrictMode: false,
 };

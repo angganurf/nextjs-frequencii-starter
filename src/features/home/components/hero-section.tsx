@@ -22,6 +22,7 @@ const HeroSection: React.FC = () => {
 					alt=""
 					fill
 					priority
+					fetchPriority="high"
 					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
 				/>
 
@@ -64,6 +65,8 @@ const HeroSection: React.FC = () => {
 				width={800}
 				height={600}
 				priority
+				fetchPriority="high"
+				sizes="(max-width: 768px) 100vw, 50vw"
 			/>
 		</section>
 	);

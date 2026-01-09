@@ -175,7 +175,7 @@ const config: Config = {
 			},
 			fontFamily: {
 				body: [
-					"Figtree",
+					"var(--font-figtree)",
 					"ui-sans-serif",
 					"system-ui",
 					"-apple-system",
@@ -188,7 +188,7 @@ const config: Config = {
 					"sans-serif",
 				],
 				heading: [
-					"Figtree",
+					"var(--font-figtree)",
 					"ui-sans-serif",
 					"system-ui",
 					"-apple-system",
@@ -201,7 +201,7 @@ const config: Config = {
 					"sans-serif",
 				],
 				sans: [
-					"Figtree",
+					"var(--font-figtree)",
 					"DM Sans",
 					"ui-sans-serif",
 					"system-ui",
