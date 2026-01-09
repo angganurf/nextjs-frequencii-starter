@@ -1,6 +1,6 @@
 import crypto from "crypto";
 
-const PIXEL_ID = "1257527596434066";
+const PIXEL_ID = "2007776473412726";
 const ACCESS_TOKEN = process.env.FB_ACCESS_TOKEN; // Ensure this is in your .env
 
 interface UserData {
