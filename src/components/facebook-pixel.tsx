@@ -15,7 +15,7 @@ const FacebookPixel = () => {
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1962251958031571');
+          fbq('init', '2275671962944641');
           fbq('track', 'PageView');
         `}
 			</Script>
@@ -24,7 +24,7 @@ const FacebookPixel = () => {
 					height="1"
 					width="1"
 					style={{ display: "none" }}
-					src="https://www.facebook.com/tr?id=1962251958031571&ev=PageView&noscript=1"
+					src="https://www.facebook.com/tr?id=2275671962944641&ev=PageView&noscript=1"
 					alt="facebook pixel"
 				/>
 			</noscript>
