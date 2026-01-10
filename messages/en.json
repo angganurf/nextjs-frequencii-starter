@@ -139,6 +139,19 @@
 		"phonePlaceholder": "08123456789",
 		"cityPlaceholder": "Jakarta, Bandung, Surabaya, etc"
 	},
+	"PakasirPayment": {
+		"title": "Payment Instructions",
+		"subtitle": "Complete your payment",
+		"orderId": "Order ID",
+		"total": "Total Payment",
+		"expiry": "Expiry Time",
+		"scanQr": "Scan the QR Code below with your E-Wallet/Mobile Banking app",
+		"vaLabel": "Virtual Account Number:",
+		"copy": "Tap to copy number",
+		"copySuccess": "Copied to clipboard!",
+		"checkStatus": "I have paid (Check Status)",
+		"note": "This page does not close automatically after payment. After paying, please check your email for order details."
+	},
 	"Guarantee": {
 		"title": "Lifetime Access Guarantee",
 		"description": "One time payment, your account is active for a lifetime without any hidden fees in it.",

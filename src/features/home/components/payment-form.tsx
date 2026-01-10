@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Button from "@/components/ui/button";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 interface PaymentChannel {
 	code: string;
@@ -16,6 +16,7 @@ interface PaymentChannel {
 const PaymentForm: React.FC = () => {
 	const t = useTranslations("PaymentForm");
 	const tPayment = useTranslations("Payment");
+	const locale = useLocale();
 	const [loading, setLoading] = useState(false);
 	const [channels, setChannels] = useState<PaymentChannel[]>([]);
 	const [selectedChannel, setSelectedChannel] = useState<string>("");
@@ -30,8 +31,14 @@ const PaymentForm: React.FC = () => {
 	useEffect(() => {
 		// Fetch channels on mount
 		const fetchChannels = async () => {
+			const gateway = process.env.NEXT_PUBLIC_PAYMENT_GATEWAY || "TRIPAY";
+			const endpoint =
+				gateway === "PAKASIR"
+					? "/api/pakasir/channels"
+					: "/api/tripay/channels";
+
 			try {
-				const res = await fetch("/api/tripay/channels");
+				const res = await fetch(endpoint);
 				const data = await res.json();
 				if (data.success && Array.isArray(data.data)) {
 					setChannels(data.data);
@@ -60,6 +67,14 @@ const PaymentForm: React.FC = () => {
 			return;
 		}
 
+		// Gateway Switch Logic
+		const gateway = process.env.NEXT_PUBLIC_PAYMENT_GATEWAY || "TRIPAY";
+		const isPakasir = gateway === "PAKASIR";
+
+		const transactionUrl = isPakasir
+			? "/api/pakasir/transaction"
+			: "/api/tripay/transaction";
+
 		// Facebook Pixel: Initiate Checkout
 		// @ts-ignore
 		if (typeof window !== "undefined" && window.fbq) {
@@ -76,7 +91,7 @@ const PaymentForm: React.FC = () => {
 		const fbc = getFbc();
 
 		try {
-			const res = await fetch("/api/tripay/transaction", {
+			const res = await fetch(transactionUrl, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
@@ -93,9 +108,27 @@ const PaymentForm: React.FC = () => {
 
 			const data = await res.json();
 
-			if (data.success && data.data.checkout_url) {
-				// Redirect to Tripay checkout
-				window.location.href = data.data.checkout_url;
+			if (data.success && (data.data.checkout_url || isPakasir)) {
+				// Tripay returns checkout_url.
+				// Pakasir (our wrapper) returns checkout_url too, but we prefer constructing it client-side
+				// to avoid middleware redirect stripping query params.
+				if (isPakasir && data.data.payment_details) {
+					const { payment_details, reference } = data.data;
+					const params = new URLSearchParams({
+						order_id: reference,
+						amount: payment_details.amount.toString(),
+						method: payment_details.method,
+						payment_number: payment_details.payment_number,
+						expired_at: payment_details.expired_at,
+					});
+					window.location.href = `/${locale}/payment/pakasir?${params.toString()}`;
+				} else if (data.data.checkout_url) {
+					window.location.href = data.data.checkout_url;
+				} else {
+					// Fallback if no URL (should not happen with current implementation)
+					console.log("Success but no redirect URL", data);
+					alert("Transaksi berhasil dibuat. Silakan cek email.");
+				}
 			} else {
 				throw new Error(data.message || "Payment initiation failed");
 			}

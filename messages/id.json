@@ -139,6 +139,19 @@
 		"phonePlaceholder": "08123456789",
 		"cityPlaceholder": "Jakarta, Bandung, Surabaya, dll"
 	},
+	"PakasirPayment": {
+		"title": "Instruksi Pembayaran",
+		"subtitle": "Selesaikan pembayaran Anda",
+		"orderId": "Order ID",
+		"total": "Total Pembayaran",
+		"expiry": "Batas Waktu",
+		"scanQr": "Scan QR Code di bawah ini dengan aplikasi E-Wallet/Mobile Banking Anda",
+		"vaLabel": "Nomor Virtual Account:",
+		"copy": "Ketuk untuk menyalin nomor",
+		"copySuccess": "Disalin ke clipboard!",
+		"checkStatus": "Saya sudah membayar (Cek Status)",
+		"note": "Halaman ini tidak otomatis tertutup setelah pembayaran. Setelah membayar, silakan cek email Anda untuk detail pesanan."
+	},
 	"Guarantee": {
 		"title": "Garansi Akses Selamanya",
 		"description": "Sekali bayar, akun kamu aktif seumur hidup tanpa ada biaya tersembunyi di dalamnya.",
