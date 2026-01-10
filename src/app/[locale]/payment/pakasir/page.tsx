@@ -11,18 +11,84 @@ export default function PakasirPaymentPage() {
 	const t = useTranslations("PakasirPayment");
 	const searchParams = useSearchParams();
 	const [mounted, setMounted] = useState(false);
+	const [status, setStatus] = useState("PENDING");
 
 	useEffect(() => {
 		setMounted(true);
 	}, []);
-
-	if (!mounted) return null;
 
 	const orderId = searchParams.get("order_id");
 	const amount = parseInt(searchParams.get("amount") || "0");
 	const method = searchParams.get("method");
 	const paymentNumber = searchParams.get("payment_number");
 	const expiredAt = searchParams.get("expired_at");
+
+	const checkPaymentStatus = async (isManual = false) => {
+		if (!orderId) return;
+		try {
+			const res = await fetch(`/api/transaction/status?order_id=${orderId}`);
+			const data = await res.json();
+			if (data.success && data.data.status === "PAID") {
+				setStatus("PAID");
+			} else if (isManual) {
+				alert(t("paymentPending"));
+			}
+		} catch (error) {
+			console.error("Error checking status:", error);
+			if (isManual) alert(t("checkError"));
+		}
+	};
+
+	// Polling for status
+	useEffect(() => {
+		if (!orderId || status === "PAID") return;
+
+		// Immediate check on load/update
+		checkPaymentStatus(false);
+
+		const interval = setInterval(() => checkPaymentStatus(false), 5000);
+		return () => clearInterval(interval);
+	}, [orderId, status]);
+
+	if (!mounted) return null;
+
+	// Success View
+	if (status === "PAID") {
+		return (
+			<div className="min-h-screen bg-green-50 flex flex-col items-center justify-center p-4">
+				<div className="bg-white max-w-md w-full rounded-2xl shadow-xl overflow-hidden p-8 text-center space-y-6">
+					<div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg
+							className="w-10 h-10 text-green-600"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth={2}
+								d="M5 13l4 4L19 7"
+							/>
+						</svg>
+					</div>
+					<h1 className="text-2xl font-bold text-gray-900">
+						{t("successTitle")}
+					</h1>
+					<p className="text-gray-600">{t("successMessage")}</p>
+					<div className="bg-blue-50 p-4 rounded-lg">
+						<p className="text-sm text-blue-800">{t("successNote")}</p>
+					</div>
+					<Link
+						href={"/" as any}
+						className="inline-block w-full bg-blue-600 text-white font-medium py-3 rounded-xl hover:bg-blue-700 transition"
+					>
+						{t("backHome")}
+					</Link>
+				</div>
+			</div>
+		);
+	}
 
 	// Formatting
 	const formattedAmount = new Intl.NumberFormat("id-ID", {
@@ -121,12 +187,12 @@ export default function PakasirPaymentPage() {
 
 					{/* Action */}
 					<div className="pt-4">
-						<Link
-							href={"/payment/success" as any}
-							className="block w-full text-center text-sm text-gray-500 hover:text-gray-900 underline"
+						<div
+							onClick={() => checkPaymentStatus(true)}
+							className="block w-full text-center text-sm text-gray-500 hover:text-gray-900 underline cursor-pointer"
 						>
 							{t("checkStatus")}
-						</Link>
+						</div>
 						<p className="text-xs text-center text-gray-400 mt-4">
 							{t("note")}
 						</p>

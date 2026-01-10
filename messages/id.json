@@ -150,7 +150,13 @@
 		"copy": "Ketuk untuk menyalin nomor",
 		"copySuccess": "Disalin ke clipboard!",
 		"checkStatus": "Saya sudah membayar (Cek Status)",
-		"note": "Halaman ini tidak otomatis tertutup setelah pembayaran. Setelah membayar, silakan cek email Anda untuk detail pesanan."
+		"note": "Halaman ini tidak otomatis tertutup setelah pembayaran. Setelah membayar, silakan cek email Anda untuk detail pesanan.",
+		"successTitle": "Pembayaran Berhasil!",
+		"successMessage": "Terima kasih telah melakukan pembayaran. Pesanan Anda sedang diproses.",
+		"successNote": "Silakan cek email Anda untuk mendapatkan detail akses produk/aplikasi.",
+		"backHome": "Kembali ke Beranda",
+		"paymentPending": "Pembayaran belum diterima. Silakan coba lagi beberapa saat.",
+		"checkError": "Gagal mengecek status pembayaran."
 	},
 	"Guarantee": {
 		"title": "Garansi Akses Selamanya",

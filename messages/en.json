@@ -150,7 +150,13 @@
 		"copy": "Tap to copy number",
 		"copySuccess": "Copied to clipboard!",
 		"checkStatus": "I have paid (Check Status)",
-		"note": "This page does not close automatically after payment. After paying, please check your email for order details."
+		"note": "This page does not close automatically after payment. After paying, please check your email for order details.",
+		"successTitle": "Payment Successful!",
+		"successMessage": "Thank you for your payment. Your order is being processed.",
+		"successNote": "Please check your email for product/app access details.",
+		"backHome": "Back to Home",
+		"paymentPending": "Payment not yet received. Please try again in a moment.",
+		"checkError": "Failed to check payment status."
 	},
 	"Guarantee": {
 		"title": "Lifetime Access Guarantee",
