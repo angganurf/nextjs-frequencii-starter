@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google"; // Import font
-import "../globals.css";
+import "./globals.css";
 import SocialProofAlert from "@/components/ui/social-proof-alert";
 import FacebookPixel from "@/components/facebook-pixel";
 import { NextIntlClientProvider } from "next-intl";
@@ -12,12 +12,8 @@ const figtree = Figtree({
 	display: "swap",
 });
 
-export async function generateMetadata({
-	params,
-}: {
-	params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-	const { locale } = await params;
+export async function generateMetadata(): Promise<Metadata> {
+	const locale = "id";
 	const t = await getTranslations({ locale, namespace: "Metadata" });
 
 	return {
@@ -44,12 +40,10 @@ export async function generateMetadata({
 
 export default async function RootLayout({
 	children,
-	params,
 }: Readonly<{
 	children: React.ReactNode;
-	params: Promise<{ locale: string }>;
 }>) {
-	const { locale } = await params;
+	const locale = "id";
 	const messages = await getMessages();
 
 	return (

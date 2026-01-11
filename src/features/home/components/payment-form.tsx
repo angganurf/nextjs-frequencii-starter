@@ -16,7 +16,6 @@ interface PaymentChannel {
 const PaymentForm: React.FC = () => {
 	const t = useTranslations("PaymentForm");
 	const tPayment = useTranslations("Payment");
-	const locale = useLocale();
 	const [loading, setLoading] = useState(false);
 	const [channels, setChannels] = useState<PaymentChannel[]>([]);
 	const [selectedChannel, setSelectedChannel] = useState<string>("");
@@ -121,8 +120,10 @@ const PaymentForm: React.FC = () => {
 						payment_number: payment_details.payment_number,
 						expired_at: payment_details.expired_at,
 					});
-					window.location.href = `/${locale}/payment/pakasir?${params.toString()}`;
+					window.location.href = `/payment/pakasir?${params.toString()}`;
 				} else if (data.data.checkout_url) {
+					// Ensure checkout_url doesn't have internal /id/ or /en/ if it's relative
+					// Note: If checkout_url came from API (like route.ts), we must ensure that API doesn't generate it with locale too.
 					window.location.href = data.data.checkout_url;
 				} else {
 					// Fallback if no URL (should not happen with current implementation)

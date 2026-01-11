@@ -4,7 +4,6 @@ import { memo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import LanguageSwitcher from "@/components/language-switcher";
 
 /**
  * Main navigation header component
@@ -27,11 +26,6 @@ const Header = memo(() => {
 			>
 				<div className="container mx-auto px-4">
 					<div className="relative flex h-16 items-center justify-center">
-						{/* Language Switcher - Absolute Left */}
-						<div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
-							<LanguageSwitcher />
-						</div>
-
 						{/* Logo - Centered */}
 						<Link
 							className="inline-block relative z-0"
