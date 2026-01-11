@@ -1,13 +1,13 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import Button from "@/components/ui/button";
 
-function PakasirPaymentContent() {
+export default function PakasirPaymentPage() {
 	const t = useTranslations("PakasirPayment");
 	const searchParams = useSearchParams();
 	const [mounted, setMounted] = useState(false);
@@ -200,19 +200,5 @@ function PakasirPaymentContent() {
 				</div>
 			</div>
 		</div>
-	);
-}
-
-export default function PakasirPaymentPage() {
-	return (
-		<Suspense
-			fallback={
-				<div className="min-h-screen flex items-center justify-center">
-					Loading...
-				</div>
-			}
-		>
-			<PakasirPaymentContent />
-		</Suspense>
 	);
 }
