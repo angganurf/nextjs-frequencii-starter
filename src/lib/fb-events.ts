@@ -23,6 +23,8 @@ export const trackViewContent = () => {
 			// @ts-ignore
 			window.ttq.track("ViewContent", {
 				content_name: "Editin Foto AI Studio",
+				content_id: "EDITIN-FOTO-AI-STUDIO",
+				content_type: "product",
 				value: 95000,
 				currency: "IDR",
 			});

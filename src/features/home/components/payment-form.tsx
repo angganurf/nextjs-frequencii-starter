@@ -93,6 +93,8 @@ const PaymentForm: React.FC = () => {
 			if (window.ttq) {
 				// @ts-ignore
 				window.ttq.track("InitiateCheckout", {
+					content_id: "EDITIN-FOTO-AI-STUDIO",
+					content_type: "product",
 					value: 95000,
 					currency: "IDR",
 				});
