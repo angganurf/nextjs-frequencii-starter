@@ -24,6 +24,11 @@ const TikTokPixel = () => {
 					window.ttq.load("D5KA6QBC77UE3GGHVH60");
 					// @ts-ignore
 					window.ttq.page();
+					// @ts-ignore
+					window.ttq.track("Landingpageview", {
+						content_id: "EDITIN-FOTO-AI-STUDIO",
+						content_type: "product",
+					});
 				}
 				clearInterval(interval);
 			}
