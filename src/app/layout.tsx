@@ -3,6 +3,7 @@ import { Figtree } from "next/font/google"; // Import font
 import "./globals.css";
 import SocialProofAlert from "@/components/ui/social-proof-alert";
 import FacebookPixel from "@/components/facebook-pixel";
+import TikTokPixel from "@/components/tiktok-pixel";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 
@@ -58,6 +59,7 @@ export default async function RootLayout({
 					</div>
 					<SocialProofAlert />
 					<FacebookPixel />
+					<TikTokPixel />
 				</NextIntlClientProvider>
 			</body>
 		</html>

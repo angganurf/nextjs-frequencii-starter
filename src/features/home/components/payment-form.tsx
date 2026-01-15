@@ -76,12 +76,27 @@ const PaymentForm: React.FC = () => {
 
 		// Facebook Pixel: Initiate Checkout
 		// @ts-ignore
-		if (typeof window !== "undefined" && window.fbq) {
+		// Facebook Pixel: Initiate Checkout
+		// @ts-ignore
+		if (typeof window !== "undefined") {
 			// @ts-ignore
-			window.fbq("track", "InitiateCheckout", {
-				value: 95000,
-				currency: "IDR",
-			});
+			if (window.fbq) {
+				// @ts-ignore
+				window.fbq("track", "InitiateCheckout", {
+					value: 95000,
+					currency: "IDR",
+				});
+			}
+
+			// TikTok Pixel: Initiate Checkout
+			// @ts-ignore
+			if (window.ttq) {
+				// @ts-ignore
+				window.ttq.track("InitiateCheckout", {
+					value: 95000,
+					currency: "IDR",
+				});
+			}
 		}
 
 		// Get FB Cookies

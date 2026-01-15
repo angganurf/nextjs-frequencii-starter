@@ -32,8 +32,8 @@ function makeRequest(options, body) {
 }
 
 // 1. Read Env
-let apiKey = '';
-let projectId = '';
+let apiKey = 'qc1PkHpij0qGBMaXEjvlhR5kkRxYrgPf;';
+let projectId = 'editin-foto';
 try {
     const envPath = path.resolve(__dirname, '../.env.local');
     if (fs.existsSync(envPath)) {
@@ -144,7 +144,8 @@ async function runSimulation() {
                     project: projectId,
                     status: "completed",
                     payment_method: "qris",
-                    completed_at: new Date().toISOString()
+                    completed_at: new Date().toISOString(),
+                    _dev_simulate: true // Bypass verification in dev mode
                 };
 
                 const cbOptions = {

@@ -56,7 +56,14 @@ export async function POST(req: Request) {
 			);
 		}
 
-		const realStatus = verifyData.transaction.status; // "completed"
+		let realStatus = verifyData.transaction?.status; // "completed"
+
+		// Development Bypass for Simulation Script
+		// Allows testing DB updates without real payment on Pakasir side
+		if (process.env.NODE_ENV === "development" && body._dev_simulate === true) {
+			console.log("🚧 DEV MODE: Bypassing Pakasir Verification");
+			realStatus = "completed";
+		}
 
 		if (realStatus === "completed") {
 			console.log(`✅ Payment COMPLETED for order ${order_id}`);
