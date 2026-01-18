@@ -1,4 +1,6 @@
+Respon: "<strong><a style="color:#b81414;">ðŸ“Œ Pemberitahuan:</a></strong>"
+Respon: "Editin Foto menggunakan layanan dari google, kebijakan baru google saat ini, limit generate 10-50 foto perhari <i>(muncul error has exceeded quota)</i> jadi pastikan berhemat dan gunakan fitur yg paling dibutuhkan dahulu."
 Respon1: "🚨 Waspada penipuan! Pastikan membeli app resmi Editin Foto hanya di <a href="https://editinfoto.site" target="_blank" rel="noopener noreferrer" style="color:#1a73e8;">editinfoto.site</a>"
-URL: https://tinyurl.com/editinfoto-v1-1-a
-Versi: 1.1
-Update: "Fitur Baru! Foto Artis"
+URL: https://apps.editinfoto.site
+Versi: 1.2.3
+Update: "Selesai maintenance.."
