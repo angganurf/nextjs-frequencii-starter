@@ -225,8 +225,58 @@ export async function POST(req: Request) {
 							console.error("❌ Failed to send CAPI event:", capiError);
 						}
 
+						// Send TikTok Event
+						let tiktokSent = false;
+						try {
+							const { sendTikTokEvent, hashData } = await import(
+								"@/lib/tiktok-events-api"
+							);
+							// Re-derive or reuse variables. Since previous block scope ended, we must re-declare or ensure access.
+							// To be safe and independent:
+							const userEmailForTikTok = userEmail || transaction.user.email;
+							const fullName = transaction.user.fullName || "";
+							const nameParts = fullName.trim().toLowerCase().split(/\s+/);
+							const fn = nameParts.length > 0 ? nameParts[0] : "";
+							const ln =
+								nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
+							const city = (transaction.user.address || "")
+								.trim()
+								.toLowerCase()
+								.replace(/[^a-z]/g, "");
+
+							await sendTikTokEvent({
+								event_name: "Purchase",
+								event_id: merchant_ref,
+								event_source_url: "https://editinfoto.com", // Or user current URL if available
+								user_data: {
+									ip: transaction.ipAddress,
+									user_agent: transaction.userAgent,
+									email: userEmailForTikTok
+										? hashData(userEmailForTikTok)
+										: null,
+									phone: transaction.customerPhone
+										? hashData(transaction.customerPhone)
+										: null,
+									external_id: hashData(String(transaction.userId)),
+								},
+								properties: {
+									currency: "IDR",
+									value: body.total_amount || 95000,
+									content_type: "product",
+									content_name: "Editin Foto Premium - Unlimited",
+								},
+							});
+							tiktokSent = true;
+						} catch (ttError) {
+							console.error("TikTok API Error:", ttError);
+						}
+
 						console.log("=== TRIPAY CALLBACK COMPLETED ===");
-						return NextResponse.json({ success: true, capi_sent: capiSent });
+						return NextResponse.json({
+							success: true,
+							capi_sent: capiSent,
+							tiktok_sent: tiktokSent,
+						});
 					} else {
 						console.error(
 							`❌ Transaction NOT FOUND for reference: ${tripayReference}`

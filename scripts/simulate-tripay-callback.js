@@ -153,9 +153,15 @@ async function runSimulation() {
             console.log('4. User Activated & Credentials Generated.');
 
             if (cbResponse.capi_sent) {
-                console.log('🚀 Sending CAPI Purchase Event... ✅ CAPI Event Sent (Purchase)');
+                console.log('🚀 Sending CAPI Purchase Event... ✅ CAPI Event Sent (Purchase) [Facebook]');
             } else {
                 console.log('⚠️ CAPI Event NOT Sent (Check server logs, possibly missing FB_ACCESS_TOKEN)');
+            }
+
+            if (cbResponse.tiktok_sent) {
+                console.log('🎵 TikTok Event Sent (Purchase) [TikTok]');
+            } else {
+                console.log('⚠️ TikTok Event NOT Sent (Check server logs, possibly missing TIKTOK_ACCESS_TOKEN)');
             }
         } else {
             console.error('\n❌ Callback Failed.');

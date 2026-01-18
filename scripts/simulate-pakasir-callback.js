@@ -161,6 +161,19 @@ async function runSimulation() {
 
                 if (cbResponse.success) {
                     console.log('\n✅ E2E TEST SUCCESS!');
+
+                    if (cbResponse.capi_sent) {
+                        console.log('🚀 CAPI Event Sent (Purchase) [Facebook]');
+                    } else {
+                        console.log('⚠️ CAPI Event NOT Sent [Facebook]');
+                    }
+
+                    if (cbResponse.tiktok_sent) {
+                        console.log('🎵 TikTok Event Sent (Purchase) [TikTok]');
+                    } else {
+                        console.log('⚠️ TikTok Event NOT Sent [TikTok]');
+                    }
+
                 } else {
                     console.log('\n❌ Callback Failed (Check logs).');
                 }

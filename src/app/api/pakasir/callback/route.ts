@@ -159,6 +159,7 @@ export async function POST(req: Request) {
 
 					// Send CAPI
 					let capiSent = false;
+					let tiktokSent = false;
 					try {
 						const { sendCapiEvent, hashData } = await import("@/lib/capi");
 						const userEmailForCapi = userEmail;
@@ -191,11 +192,45 @@ export async function POST(req: Request) {
 							},
 						});
 						capiSent = true;
+
+						// Send TikTok Event
+						try {
+							const { sendTikTokEvent } = await import(
+								"@/lib/tiktok-events-api"
+							);
+							await sendTikTokEvent({
+								event_name: "Purchase",
+								event_id: order_id,
+								event_source_url: "https://editinfoto.com", // Or user current URL if available
+								user_data: {
+									ip: transaction.ipAddress,
+									user_agent: transaction.userAgent,
+									email: userEmailForCapi ? hashData(userEmailForCapi) : null,
+									phone: transaction.customerPhone
+										? hashData(transaction.customerPhone)
+										: null,
+									external_id: hashData(String(transaction.userId)),
+								},
+								properties: {
+									currency: "IDR",
+									value: transaction.amount,
+									content_type: "product",
+									content_name: "Editin Foto Premium - Unlimited",
+								},
+							});
+							tiktokSent = true;
+						} catch (ttError) {
+							console.error("TikTok API Error:", ttError);
+						}
 					} catch (e) {
 						console.error("CAPI Error:", e);
 					}
 
-					return NextResponse.json({ success: true, capi_sent: capiSent });
+					return NextResponse.json({
+						success: true,
+						capi_sent: capiSent,
+						tiktok_sent: tiktokSent,
+					});
 				} else {
 					console.error(`❌ Transaction NOT FOUND for reference: ${order_id}`);
 					return NextResponse.json(

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import bcrypt from "bcrypt";
+// bcrypt removed - no longer needed for passwordless auth
 import jwt from "jsonwebtoken";
 import { validateApiKey, unauthorizedResponse } from "@/lib/api-auth";
 
@@ -22,19 +22,19 @@ export async function POST(req: NextRequest) {
 	if (!validateApiKey(req)) {
 		return NextResponse.json(
 			{ error: "Unauthorized" },
-			{ status: 401, headers: corsHeaders }
+			{ status: 401, headers: corsHeaders },
 		);
 	}
 
 	try {
 		const body = await req.json();
-		const { identifier, password } = body; // identifier = email or username
+		const { identifier } = body; // identifier = email or username (passwordless login)
 
 		// Validate required fields
-		if (!identifier || !password) {
+		if (!identifier) {
 			return NextResponse.json(
-				{ error: "Identifier (email/username) and password are required" },
-				{ status: 400, headers: corsHeaders }
+				{ error: "Identifier (email/username) is required" },
+				{ status: 400, headers: corsHeaders },
 			);
 		}
 
@@ -48,19 +48,11 @@ export async function POST(req: NextRequest) {
 		if (!user) {
 			return NextResponse.json(
 				{ error: "Invalid credentials" },
-				{ status: 401, headers: corsHeaders }
+				{ status: 401, headers: corsHeaders },
 			);
 		}
 
-		// Compare password
-		const isMatch = await bcrypt.compare(password, user.password);
-		if (!isMatch) {
-			return NextResponse.json(
-				{ error: "Invalid credentials" },
-				{ status: 401, headers: corsHeaders }
-			);
-		}
-
+		// Passwordless authentication - no password check required
 		// Generate JWT Token
 		const token = jwt.sign({ userId: user.id, email: user.email }, JWT_SECRET, {
 			expiresIn: "7d",
@@ -77,13 +69,13 @@ export async function POST(req: NextRequest) {
 					isActive: user.isActive,
 				},
 			},
-			{ status: 200, headers: corsHeaders }
+			{ status: 200, headers: corsHeaders },
 		);
 	} catch (error: any) {
 		console.error(error);
 		return NextResponse.json(
 			{ error: "Login failed", details: error.message },
-			{ status: 500, headers: corsHeaders }
+			{ status: 500, headers: corsHeaders },
 		);
 	}
 }
